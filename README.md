@@ -9,7 +9,7 @@ FEATURES:
 - AdminClient downloader & updater protected by password
 - Version history
 - Nick changer
-- Nick restoring after restarting launcher
+- Nick restoring after restarting the launcher
 - Invalid characters in nick detector
 - Too much characters in nick detector
 - Not enough characters in nick detector
