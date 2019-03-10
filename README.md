@@ -1,4 +1,4 @@
-# BetaCraft-Launcher
+# BetaCraft-Launcher [CLOSED]
 
 
 Launcher for modded, Minecraft beta server BetaCraft 1.7.3.
