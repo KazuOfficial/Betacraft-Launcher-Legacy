@@ -1,17 +1,5 @@
-# BetaCraft-Launcher [CLOSED]
+# BetaCraft-Launcher [NO LONGER SUPPORTED]
 
-
-Launcher for modded, Minecraft beta server BetaCraft 1.7.3.
-It's my first project.
-
-FEATURES:
-- AutoUpdater
-- AdminClient downloader & updater protected by password
-- Version history
-- Nick changer
-- Nick restoring after restarting the launcher
-- Invalid characters in nick detector
-- Too much characters in nick detector
-- Not enough characters in nick detector
-
-Have a nice day!
+Launcher for Minecraft beta server BetaCraft 1.7.3.
+Some features don't work.
+I released a demo version of this program so you can look at how it was working back in the days.
