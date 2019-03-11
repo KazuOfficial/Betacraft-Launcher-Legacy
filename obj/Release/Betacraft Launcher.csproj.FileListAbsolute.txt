@@ -15,3 +15,22 @@ C:\Users\Kazu\source\repos\Betacraft Launcher\Betacraft Launcher\obj\Release\Bet
 C:\Users\Kazu\source\repos\Betacraft Launcher\Betacraft Launcher\obj\Release\Betacraft Launcher.csprojAssemblyReference.cache
 C:\Users\Kazu\source\repos\Betacraft Launcher\Betacraft Launcher\obj\Release\Password.g.cs
 C:\Users\Kazu\source\repos\Betacraft Launcher\Betacraft Launcher\obj\Release\Password.baml
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\bin\Release\Betacraft Launcher.exe.config
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\bin\Release\Betacraft Launcher.exe
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\bin\Release\Betacraft Launcher.pdb
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\Betacraft Launcher.csprojAssemblyReference.cache
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\MainWindow.g.cs
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\Password.g.cs
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\About.g.cs
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\App.g.cs
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\Betacraft Launcher_MarkupCompile.cache
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\Betacraft Launcher_MarkupCompile.lref
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\MainWindow.baml
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\Password.baml
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\About.baml
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\Betacraft Launcher.g.resources
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\Betacraft_Launcher.Properties.Resources.resources
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\Betacraft Launcher.csproj.GenerateResource.cache
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\Betacraft Launcher.csproj.CoreCompileInputs.cache
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\Betacraft Launcher.exe
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\Betacraft Launcher.pdb

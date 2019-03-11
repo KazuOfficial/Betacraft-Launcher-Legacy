@@ -8,16 +8,15 @@ namespace Betacraft_Launcher
 {
     class Launcher
     {
+        //Fragmenty kodu zostały zachowane w celach pokazowych
         //TODO: Blur, autoupdater, layouts, 32 bit, może slajder, entery, drag
 
         static WebClient client = new WebClient();
         static Process proc = new Process();
         static Password pww = new Password();
 
-        static string createText;
         static string appData = Environment.GetEnvironmentVariable("APPDATA");
         static string DES = appData + @"\betacraft\";
-        static string PWD = "tytuspedal";
     
         public static void LaunchGame(string username)
         {
@@ -30,7 +29,7 @@ namespace Betacraft_Launcher
             Process.Start(url);
         }
 
-        public static void Download(string labele, string download, string path, string write)
+        /*/public static void Download(string labele, string download, string path, string write)
         {
             createText = labele + Environment.NewLine;
             MessageBox.Show("Dostępna jest aktualizacja. Wciśnij OK aby ją pobrać. (To może zająć chwilę. Program się wyłączy by nie przeszkadzać użytkownikowi w korzystaniu z komputera, a potem włączy gdy aktualizacja dobiegnie końca.)");
@@ -101,7 +100,7 @@ namespace Betacraft_Launcher
         public static void LauncherUpdate()
         {
 
-        }
+        }/*/
 
         }
 

@@ -2,9 +2,6 @@
 
 namespace Betacraft_Launcher
 {
-    /// <summary>
-    /// Logika interakcji dla klasy Window1.xaml
-    /// </summary>
     public partial class About : Window
     {
         public About()

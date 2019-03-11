@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Betacraft_Launcher"
         mc:Ignorable="d"
-        Title="Betacraft Launcher 1.4" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Visibility="Visible" BorderThickness="1" Closing="Window_Closing">
+        Title="Betacraft Launcher [FINAL]" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Visibility="Visible" BorderThickness="1" Closing="Window_Closing">
     <Grid KeyDown="Grid_KeyDown">
         <Grid.Background>
             <ImageBrush ImageSource="8f24dd07579f5ca65d78c8a279e0bac4.jpg"/>

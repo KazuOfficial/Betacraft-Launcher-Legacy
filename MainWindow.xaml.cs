@@ -27,7 +27,7 @@ namespace Betacraft_Launcher
         {
             InitializeComponent();
 
-            labele = client.DownloadString("https://betacraft.ovh/client/version.txt");
+            //labele = client.DownloadString("https://betacraft.ovh/client/version.txt");
 
             if (!Directory.Exists(appData + @"\betacraft\"))
             {
@@ -64,7 +64,7 @@ namespace Betacraft_Launcher
 
             if (readText != labele)
             {
-                Launcher.Download(client.DownloadString("https://betacraft.ovh/client/version.txt"), "https://betacraft.ovh/client/betacraft.rar", appData + @"\betacraft\betacraft.rar", appData + @"\betacraft\versions.txt");
+                //Launcher.Download(client.DownloadString("https://betacraft.ovh/client/version.txt"), "https://betacraft.ovh/client/betacraft.rar", appData + @"\betacraft\betacraft.rar", appData + @"\betacraft\versions.txt");
             }
             else
             {
@@ -85,7 +85,8 @@ namespace Betacraft_Launcher
             }
             else
             {
-                Launcher.LaunchGame(textbox1.Text);
+                //Launcher.LaunchGame(textbox1.Text);
+                MessageBox.Show("W wersji demonstracyjnej gra nie uruchamia się z powodu zaprzestania wspierania programu!");
             }
         }
 

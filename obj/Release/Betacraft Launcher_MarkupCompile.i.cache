@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Kazu\source\repos\Betacraft Launcher\Betacraft Launcher\obj\Release\
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\
 Betacraft_Launcher
 none
 false
 TRACE
-C:\Users\Kazu\source\repos\Betacraft Launcher\Betacraft Launcher\App.xaml
-2-1743324290
+C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\App.xaml
+31940717876
 
-111629158607
+12-1385625059
 131569487696
-MainWindow.xaml;Password.xaml;
+MainWindow.xaml;Password.xaml;About.xaml;
 
-False
+True
 
