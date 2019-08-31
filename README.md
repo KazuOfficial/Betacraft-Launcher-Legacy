@@ -1,4 +1,4 @@
-# BetaCraft-Launcher [NO LONGER SUPPORTED]
+# BetaCraft-Launcher
 
 First, original launcher for Minecraft beta server BetaCraft 1.7.3.
 Unfortunately, the launcher is no longer supported.
