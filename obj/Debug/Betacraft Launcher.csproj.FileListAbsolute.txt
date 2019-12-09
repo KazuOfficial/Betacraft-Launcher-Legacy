@@ -51,3 +51,21 @@ C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Debug\Betacraft Lau
 C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Debug\Betacraft_Launcher.Properties.Resources.resources
 C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Debug\Betacraft Launcher.csproj.GenerateResource.cache
 C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Debug\Betacraft Launcher.csproj.CoreCompileInputs.cache
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\bin\Debug\Betacraft Launcher.exe.config
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\bin\Debug\Betacraft Launcher.exe
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\bin\Debug\Betacraft Launcher.pdb
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Debug\Betacraft Launcher.csprojAssemblyReference.cache
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Debug\MainWindow.g.cs
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Debug\Password.g.cs
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Debug\About.g.cs
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Debug\App.g.cs
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Debug\Betacraft Launcher_MarkupCompile.cache
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Debug\Betacraft Launcher_MarkupCompile.lref
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Debug\MainWindow.baml
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Debug\Password.baml
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Debug\About.baml
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Debug\Betacraft Launcher.g.resources
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Debug\Betacraft_Launcher.Properties.Resources.resources
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Debug\Betacraft Launcher.csproj.GenerateResource.cache
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Debug\Betacraft Launcher.exe
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Debug\Betacraft Launcher.pdb

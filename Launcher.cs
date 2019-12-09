@@ -8,15 +8,13 @@ namespace Betacraft_Launcher
 {
     class Launcher
     {
-        //Fragmenty kodu zostały zachowane w celach pokazowych
-        //TODO: Blur, autoupdater, layouts, 32 bit, może slajder, entery, drag
-
         static WebClient client = new WebClient();
         static Process proc = new Process();
         static Password pww = new Password();
 
         static string appData = Environment.GetEnvironmentVariable("APPDATA");
         static string DES = appData + @"\betacraft\";
+        static string createText;
     
         public static void LaunchGame(string username)
         {
@@ -29,11 +27,11 @@ namespace Betacraft_Launcher
             Process.Start(url);
         }
 
-        /*/public static void Download(string labele, string download, string path, string write)
+        public static void Download(string labele, string download, string path, string write)
         {
             createText = labele + Environment.NewLine;
             MessageBox.Show("Dostępna jest aktualizacja. Wciśnij OK aby ją pobrać. (To może zająć chwilę. Program się wyłączy by nie przeszkadzać użytkownikowi w korzystaniu z komputera, a potem włączy gdy aktualizacja dobiegnie końca.)");
-            client.DownloadFile("https://betacraft.ovh/client/unrar.exe", appData + @"\betacraft\unrar.exe");
+            client.DownloadFile("https://betacraft.pl/client/unrar.exe", appData + @"\betacraft\unrar.exe");
             client.DownloadFile(download, path);
             File.WriteAllText(write, createText);
 
@@ -66,16 +64,16 @@ namespace Betacraft_Launcher
             {
                 Directory.CreateDirectory(appData + @"\.minecraft\mods\zombe");
             }
-            client.DownloadFile("https://betacraft.ovh/client/optionalupdate/config.txt", appData + @"\.minecraft\mods\zombe\config.txt");
-            client.DownloadFile("https://betacraft.ovh/client/optionalupdate/fuel.txt", appData + @"\.minecraft\mods\zombe\fuel.txt");
-            client.DownloadFile("https://betacraft.ovh/client/optionalupdate/log.txt", appData + @"\.minecraft\mods\zombe\log.txt");
-            client.DownloadFile("https://betacraft.ovh/client/optionalupdate/names.txt", appData + @"\.minecraft\mods\zombe\names.txt");
-            client.DownloadFile("https://betacraft.ovh/client/optionalupdate/recipes-clean.txt", appData + @"\.minecraft\mods\zombe\recipes-clean.txt");
-            client.DownloadFile("https://betacraft.ovh/client/optionalupdate/recipes-example.txt", appData + @"\.minecraft\mods\zombe\recipes-example.txt");
-            client.DownloadFile("https://betacraft.ovh/client/optionalupdate/recipes-mp.txt", appData + @"\.minecraft\mods\zombe\recipes-mp.txt");
-            client.DownloadFile("https://betacraft.ovh/client/optionalupdate/recipes-vanilla.txt", appData + @"\.minecraft\mods\zombe\recipes-vanilla.txt");
-            client.DownloadFile("https://betacraft.ovh/client/optionalupdate/recipes.txt", appData + @"\.minecraft\mods\zombe\recipes.txt");
-            client.DownloadFile("https://betacraft.ovh/client/optionalupdate/smelting.txt", appData + @"\.minecraft\mods\zombe\smelting.txt");
+            client.DownloadFile("https://betacraft.pl/client/optionalupdate/config.txt", appData + @"\.minecraft\mods\zombe\config.txt");
+            client.DownloadFile("https://betacraft.pl/client/optionalupdate/fuel.txt", appData + @"\.minecraft\mods\zombe\fuel.txt");
+            client.DownloadFile("https://betacraft.pl/client/optionalupdate/log.txt", appData + @"\.minecraft\mods\zombe\log.txt");
+            client.DownloadFile("https://betacraft.pl/client/optionalupdate/names.txt", appData + @"\.minecraft\mods\zombe\names.txt");
+            client.DownloadFile("https://betacraft.pl/client/optionalupdate/recipes-clean.txt", appData + @"\.minecraft\mods\zombe\recipes-clean.txt");
+            client.DownloadFile("https://betacraft.pl/client/optionalupdate/recipes-example.txt", appData + @"\.minecraft\mods\zombe\recipes-example.txt");
+            client.DownloadFile("https://betacraft.pl/client/optionalupdate/recipes-mp.txt", appData + @"\.minecraft\mods\zombe\recipes-mp.txt");
+            client.DownloadFile("https://betacraft.pl/client/optionalupdate/recipes-vanilla.txt", appData + @"\.minecraft\mods\zombe\recipes-vanilla.txt");
+            client.DownloadFile("https://betacraft.pl/client/optionalupdate/recipes.txt", appData + @"\.minecraft\mods\zombe\recipes.txt");
+            client.DownloadFile("https://betacraft.pl/client/optionalupdate/smelting.txt", appData + @"\.minecraft\mods\zombe\smelting.txt");
         }
         
         public static void Unrar(string filepath, string SRC)
@@ -85,7 +83,7 @@ namespace Betacraft_Launcher
                 proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 proc.EnableRaisingEvents = true;
 
-                proc.StartInfo.Arguments = String.Format("x -p{0} {1} {2}", PWD, SRC, DES);
+                proc.StartInfo.Arguments = String.Format("x -p{0} {1} {2}", "duh", SRC, DES);
                 proc.Start();
             }
 
@@ -96,11 +94,6 @@ namespace Betacraft_Launcher
                 //MainWindow.VisibilityProperty = Visibility.Hidden;
             }
         }
-
-        public static void LauncherUpdate()
-        {
-
-        }/*/
 
         }
 

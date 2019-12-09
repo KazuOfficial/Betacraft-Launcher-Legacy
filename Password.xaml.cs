@@ -9,7 +9,7 @@ namespace Betacraft_Launcher
 {
     public partial class Password : Window
     {
-        string labeleadmin;
+        string emptyStringadmin;
         string readadmin;
         string appData = Environment.GetEnvironmentVariable("APPDATA");
 
@@ -23,15 +23,14 @@ namespace Betacraft_Launcher
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             readadmin = File.ReadLines(appData + @"\betacraft\versionsadmin.txt").First();
-            //labeleadmin = client.DownloadString("https://betacraft.ovh/client/versionadmin.txt");
+            emptyStringadmin = client.DownloadString("https://betacraft.pl/client/versionadmin.txt");
 
             if (haslo.Text == "tytuz")
                 {
-                    if (readadmin != labeleadmin)
+                    if (readadmin != emptyStringadmin)
                     {
-                        //Launcher.Download(client.DownloadString("https://betacraft.ovh/client/versionadmin.txt"), "https://betacraft.ovh/client/betacraftadmin.rar", appData + @"\betacraft\betacraftadmin.rar", appData + @"\betacraft\versionsadmin.txt");
-                        //Launcher.Fix();
-                        MessageBox.Show("W wersji demonstracyjnej aktualizacje nie funkcjonują z powodu zaprzestania wspierania programu!");
+                        Launcher.Download(client.DownloadString("https://betacraft.pl/client/versionadmin.txt"), "https://betacraft.pl/client/betacraftadmin.rar", appData + @"\betacraft\betacraftadmin.rar", appData + @"\betacraft\versionsadmin.txt");
+                        Launcher.Fix();
                     }
                     
                 }

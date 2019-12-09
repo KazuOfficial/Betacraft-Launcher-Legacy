@@ -34,3 +34,21 @@ C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\Betacraft L
 C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\Betacraft Launcher.csproj.CoreCompileInputs.cache
 C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\Betacraft Launcher.exe
 C:\Users\Kazu\source\repos\BClauncher\BetaCraft-Launcher\obj\Release\Betacraft Launcher.pdb
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\bin\Release\Betacraft Launcher.exe.config
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\bin\Release\Betacraft Launcher.exe
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\bin\Release\Betacraft Launcher.pdb
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\Betacraft Launcher.csprojAssemblyReference.cache
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\MainWindow.g.cs
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\Password.g.cs
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\About.g.cs
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\App.g.cs
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\Betacraft Launcher_MarkupCompile.cache
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\Betacraft Launcher_MarkupCompile.lref
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\MainWindow.baml
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\Password.baml
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\About.baml
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\Betacraft Launcher.g.resources
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\Betacraft_Launcher.Properties.Resources.resources
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\Betacraft Launcher.csproj.GenerateResource.cache
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\Betacraft Launcher.exe
+D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\Betacraft Launcher.pdb
