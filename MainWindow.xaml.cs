@@ -21,7 +21,6 @@ namespace Betacraft_Launcher
 
         WebClient client = new WebClient();
         About ab = new About();
-        Password pw = new Password();
 
         public MainWindow()
         {
@@ -113,10 +112,6 @@ namespace Betacraft_Launcher
             {
                 MessageBox.Show("Nick nie może zawierać polskich znaków, spacji oraz znaków typu &, # i tym podobnych.");
             }
-            else
-            {
-                pw.Visibility = Visibility.Visible;
-            }
         }
 
         private void Grid_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
@@ -129,7 +124,7 @@ namespace Betacraft_Launcher
 
         private void AboutButton_Click(object sender, RoutedEventArgs e)
         {
-            ab.Visibility = Visibility.Visible;
+            ab.Show();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
