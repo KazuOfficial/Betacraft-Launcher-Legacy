@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Betacraft_Launcher"
         mc:Ignorable="d"
-        Title="Betacraft Launcher 1.1" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Visibility="Visible" BorderThickness="1" Closing="Window_Closing">
+        Title="Betacraft Launcher 1.2" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Visibility="Visible" BorderThickness="1" Closing="Window_Closing">
     <Grid KeyDown="Grid_KeyDown">
         <Grid.Background>
             <ImageBrush ImageSource="8f24dd07579f5ca65d78c8a279e0bac4.jpg"/>
@@ -25,10 +25,10 @@
             <ColumnDefinition Width="50*"/>
             <ColumnDefinition Width="415*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Graj" HorizontalAlignment="Left" Margin="59,8,0,0" VerticalAlignment="Top" Width="195" Height="36" Grid.Column="4" Click="Button_Click" Grid.ColumnSpan="3" Grid.Row="3"/>
-        <TextBox x:Name="textbox1" Grid.Column="5" HorizontalAlignment="Left" Height="23" Margin="14,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textbox1_TextChanged" Grid.ColumnSpan="2" Grid.Row="2"/>
+        <Button Content="Play" HorizontalAlignment="Left" Margin="59,8,0,0" VerticalAlignment="Top" Width="195" Height="36" Grid.Column="4" Click="Button_Click" Grid.ColumnSpan="3" Grid.Row="3"/>
+        <TextBox x:Name="textbox1" Grid.Column="5" HorizontalAlignment="Left" Height="21" Margin="14,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textbox1_TextChanged" Grid.ColumnSpan="2" Grid.Row="2"/>
         <WebBrowser HorizontalAlignment="Left" Height="293" Margin="21,10,0,0" VerticalAlignment="Top" Width="750" Grid.ColumnSpan="7" Source="https://betacraft.pl/versions/" Grid.RowSpan="3"/>
-        <Label Content="Launcher został zrobiony przez Kazu©" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Grid.ColumnSpan="4" Width="196" FontSize="11" Foreground="#FF636363" Grid.Row="3"/>
+        <Label Content="The launcher made by Kazu©" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Grid.ColumnSpan="4" Width="196" FontSize="11" Foreground="#FF636363" Grid.Row="3"/>
         <Label Content="Nick" Grid.Column="4" HorizontalAlignment="Left" Margin="59,62,0,0" VerticalAlignment="Top" Foreground="White" Grid.ColumnSpan="2" Grid.Row="2"/>
         <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="21" Click="Button_Click_1" Height="79" Grid.RowSpan="2">
             <Button.OpacityMask>

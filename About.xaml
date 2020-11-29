@@ -4,19 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Betacraft_Launcher"
+        Closing="About_Closing"
         mc:Ignorable="d"
-        Title="O programie" Height="156.128" Width="252.646" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="About" Height="193.24" Width="245.821" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content=" Launcher został zrobiony przez Kazu©&#xA;          Wszelkie prawa zastrzeżone.&#xA;       Christmas icons - Anna Sereda©&#xA;          Obsidian texture - Mojang©&#xD;&#xA;    Close button - pixelartmarket.com©" HorizontalAlignment="Left" VerticalAlignment="Top" Height="90" Width="216" Margin="17,60,0,0"/>
-        <Image HorizontalAlignment="Left" Height="38" Margin="108,17,0,0" VerticalAlignment="Top" Width="46" Source="favicon.ico"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="211,10,0,0" VerticalAlignment="Top" Width="32" Height="27" Click="Button_Click">
-            <Button.OpacityMask>
-                <ImageBrush ImageSource="caa04f8a65fe734.png"/>
-            </Button.OpacityMask>
-            <Button.Background>
-                <ImageBrush ImageSource="caa04f8a65fe734.png"/>
-            </Button.Background>
-        </Button>
+        <Label Content="            Launcher made by Kazu©&#xA;                  All rights reserved.&#xA;       Christmas icons - Anna Sereda©&#xA;          Obsidian texture - Mojang©&#xA;    Close button - pixelartmarket.com©" HorizontalAlignment="Left" VerticalAlignment="Top" Height="91" Width="215" Margin="0,60,0,0"/>
+        <Image HorizontalAlignment="Left" Height="38" Margin="96,17,0,0" VerticalAlignment="Top" Width="46" Source="favicon.ico"/>
 
     </Grid>
 </Window>

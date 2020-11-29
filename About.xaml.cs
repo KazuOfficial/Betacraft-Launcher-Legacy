@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 
 namespace Betacraft_Launcher
 {
@@ -7,11 +8,13 @@ namespace Betacraft_Launcher
         public About()
         {
             InitializeComponent();
+            this.Topmost = true;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void About_Closing(object sender, CancelEventArgs e)
         {
-            Visibility = Visibility.Hidden;
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }
