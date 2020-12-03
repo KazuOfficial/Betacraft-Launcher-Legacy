@@ -52,3 +52,20 @@ D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\Betacraft_Launcher.Pro
 D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\Betacraft Launcher.csproj.GenerateResource.cache
 D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\Betacraft Launcher.exe
 D:\Users\Kazu\source\repos\BetaCraft-Launcher\obj\Release\Betacraft Launcher.pdb
+D:\Programming\Betacraft-Launcher\obj\Release\Betacraft Launcher.csprojAssemblyReference.cache
+D:\Programming\Betacraft-Launcher\obj\Release\MainWindow.g.cs
+D:\Programming\Betacraft-Launcher\obj\Release\About.g.cs
+D:\Programming\Betacraft-Launcher\obj\Release\App.g.cs
+D:\Programming\Betacraft-Launcher\obj\Release\Betacraft Launcher_MarkupCompile.cache
+D:\Programming\Betacraft-Launcher\obj\Release\Betacraft Launcher_MarkupCompile.lref
+D:\Programming\Betacraft-Launcher\obj\Release\Betacraft Launcher.exe
+D:\Programming\Betacraft-Launcher\obj\Release\Betacraft Launcher.pdb
+D:\Programming\Betacraft-Launcher\bin\Release\Betacraft Launcher.exe.config
+D:\Programming\Betacraft-Launcher\bin\Release\Betacraft Launcher.exe
+D:\Programming\Betacraft-Launcher\bin\Release\Betacraft Launcher.pdb
+D:\Programming\Betacraft-Launcher\obj\Release\MainWindow.baml
+D:\Programming\Betacraft-Launcher\obj\Release\About.baml
+D:\Programming\Betacraft-Launcher\obj\Release\Betacraft Launcher.g.resources
+D:\Programming\Betacraft-Launcher\obj\Release\Betacraft_Launcher.Properties.Resources.resources
+D:\Programming\Betacraft-Launcher\obj\Release\Betacraft Launcher.csproj.GenerateResource.cache
+D:\Programming\Betacraft-Launcher\obj\Release\Betacraft Launcher.csproj.CoreCompileInputs.cache

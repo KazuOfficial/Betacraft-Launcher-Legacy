@@ -86,3 +86,7 @@ D:\Programming\Betacraft-Launcher\obj\Debug\Betacraft Launcher.g.resources
 D:\Programming\Betacraft-Launcher\obj\Debug\Betacraft_Launcher.Properties.Resources.resources
 D:\Programming\Betacraft-Launcher\obj\Debug\Betacraft Launcher.csproj.GenerateResource.cache
 D:\Programming\Betacraft-Launcher\obj\Debug\Betacraft Launcher.csproj.CoreCompileInputs.cache
+D:\Programming\Betacraft-Launcher\obj\Debug\Versions.g.cs
+D:\Programming\Betacraft-Launcher\obj\Debug\Versions.baml
+D:\Programming\Betacraft-Launcher\obj\Debug\Options.g.cs
+D:\Programming\Betacraft-Launcher\obj\Debug\Options.baml
