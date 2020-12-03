@@ -21,6 +21,8 @@ namespace Betacraft_Launcher
 
         WebClient client = new WebClient();
         About ab = new About();
+        Versions vs = new Versions();
+        Options op = new Options();
 
         public MainWindow()
         {
@@ -125,6 +127,16 @@ namespace Betacraft_Launcher
         private void AboutButton_Click(object sender, RoutedEventArgs e)
         {
             ab.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            vs.Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            op.Show();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
