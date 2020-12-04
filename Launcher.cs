@@ -28,8 +28,8 @@ namespace Betacraft_Launcher
 
         public static void Download(string labele, string download, string path, string write)
         {
-            /*createText = labele + Environment.NewLine;
-            MessageBox.Show("Update available! Click OK to download the update.");
+            createText = labele + Environment.NewLine;
+            //MessageBox.Show("Update available! Click OK to download the update.");
             client.DownloadFile("https://betacraft.pl/client/unrar.exe", appData + @"\betacraft\unrar.exe");
             client.DownloadFile(download, path);
             File.WriteAllText(write, createText);
@@ -38,7 +38,7 @@ namespace Betacraft_Launcher
             {
                 Directory.Delete(appData + @"\betacraft\betacraft", true);
             }
-            Unrar(appData + @"\betacraft\unrar.exe", path);*/
+            Unrar(appData + @"\betacraft\unrar.exe", path);
         }
         
         public static void Unrar(string filepath, string SRC)
