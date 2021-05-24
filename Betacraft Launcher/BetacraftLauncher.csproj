@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <RootNamespace>BetacraftLauncher</RootNamespace>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>BetacraftLauncher</AssemblyName>
+    <ApplicationIcon>bc.ico</ApplicationIcon>
+    <Authors>Kazu</Authors>
+    <Company>Betacraft</Company>
+    <Product>Betacraft Launcher</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\background.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Caliburn.Micro" Version="4.0.173" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BetacraftLauncher.Library\BetacraftLauncher.Library.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\background.jpg" />
+  </ItemGroup>
+
+</Project>
