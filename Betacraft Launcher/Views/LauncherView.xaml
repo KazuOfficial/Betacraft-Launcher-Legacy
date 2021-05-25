@@ -29,7 +29,7 @@
         
         <StackPanel Grid.Row="1" Grid.Column="0">
             <TextBox MaxWidth="150" Padding="1" Margin="0 20 0 0" MaxLines="10"/>
-            <Button MinHeight="20" MaxWidth="100" Padding="4" Margin="0 10 0 0">Play</Button>
+            <Button x:Name="Play" MinHeight="20" MaxWidth="100" Padding="4" Margin="0 10 0 0">Play</Button>
         </StackPanel>
 
         <TextBlock Text="Made by Kazu | github.com/KazuOfficial" FontSize="10" Foreground="gray" Grid.Row="2" Margin="12 0 0 8" />

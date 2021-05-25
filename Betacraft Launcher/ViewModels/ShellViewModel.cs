@@ -11,7 +11,7 @@ namespace BetacraftLauncher.ViewModels
 {
     public class ShellViewModel : Conductor<object>
     {
-        private string launcherPath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\betacraftlegacy\";
+        private string launcherPath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\betacraftlegacy\versions\jsons\";
         public ShellViewModel()
         {
             ActivateItemAsync(IoC.Get<LauncherViewModel>(), new CancellationToken());

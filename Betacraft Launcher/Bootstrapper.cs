@@ -66,7 +66,8 @@ namespace BetacraftLauncher
             _container.Instance(ConfigureAutomapper());
 
             _container.Instance(_container)
-                  .PerRequest<IVersionEndpoint, VersionEndpoint>();
+                  .PerRequest<IVersionEndpoint, VersionEndpoint>()
+                  .PerRequest<IDownloadVersionEndpoint, DownloadVersionEndpoint>();
             //    .PerRequest<IProductEndpoint, ProductEndpoint>()
             //    .PerRequest<IUserEndpoint, UserEndpoint>()
             //    .PerRequest<ISaleEndpoint, SaleEndpoint>();
