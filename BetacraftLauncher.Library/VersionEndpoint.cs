@@ -15,14 +15,13 @@ namespace BetacraftLauncher.Library
 {
     public class VersionEndpoint : IVersionEndpoint
     {
+        private string versionPath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy\launcher\versions.txt";
         private readonly IConfiguration config;
 
         public VersionEndpoint(IConfiguration config)
         {
             this.config = config;
         }
-
-        private string versionPath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\betacraftlegacy\fuckinghell.txt";
         public async Task<List<VersionModel>> GetVersions()
         {
             try
@@ -54,6 +53,8 @@ namespace BetacraftLauncher.Library
                 string[] x = line.Split("`");
                 result.Add(new VersionModel { Version = x[0] });
             }
+
+            File.Delete(versionPath);
 
             return result;
         }

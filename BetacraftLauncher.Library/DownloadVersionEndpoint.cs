@@ -10,7 +10,7 @@ namespace BetacraftLauncher.Library
 {
     public class DownloadVersionEndpoint : IDownloadVersionEndpoint
     {
-        private string launcherPath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\betacraftlegacy\";
+        private string launcherPath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy\";
 
         private readonly IConfiguration config;
 

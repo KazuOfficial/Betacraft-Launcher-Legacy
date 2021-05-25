@@ -5,16 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BetacraftLauncher.Views"
         mc:Ignorable="d"
-        Title="Versions" Height="400" Width="200">
+        Title="Versions" Height="500" Width="300" MinHeight="350" MinWidth="150" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <ListBox x:Name="Versions" Grid.Row="2" Grid.Column="0" MinHeight="200" MinWidth="150">
+        <ListBox x:Name="Versions" FontSize="15" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" MinHeight="200" MinWidth="150" SelectedItem="{Binding SelectedVersion}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
@@ -23,5 +26,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Button x:Name="SelectVersion" Grid.Row="3" Grid.Column="0" Padding="5">OK</Button>
     </Grid>
 </Window>

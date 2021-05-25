@@ -67,7 +67,9 @@ namespace BetacraftLauncher
 
             _container.Instance(_container)
                   .PerRequest<IVersionEndpoint, VersionEndpoint>()
-                  .PerRequest<IDownloadVersionEndpoint, DownloadVersionEndpoint>();
+                  .PerRequest<IDownloadVersionEndpoint, DownloadVersionEndpoint>()
+                  .PerRequest<IFileInit, FileInit>()
+                  .PerRequest<ILaunchManager, LaunchManager>();
             //    .PerRequest<IProductEndpoint, ProductEndpoint>()
             //    .PerRequest<IUserEndpoint, UserEndpoint>()
             //    .PerRequest<ISaleEndpoint, SaleEndpoint>();

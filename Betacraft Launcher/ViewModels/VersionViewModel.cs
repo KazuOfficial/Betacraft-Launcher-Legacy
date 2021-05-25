@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BetacraftLauncher.EventModels;
 using BetacraftLauncher.Library;
 using BetacraftLauncher.Library.Models;
 using BetacraftLauncher.Models;
@@ -9,6 +10,7 @@ using System.ComponentModel;
 using System.Dynamic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -19,12 +21,14 @@ namespace BetacraftLauncher.ViewModels
         private readonly IVersionEndpoint versionEndpoint;
         private readonly IWindowManager window;
         private readonly IMapper mapper;
+        private readonly IEventAggregator events;
 
-        public VersionViewModel(IVersionEndpoint versionEndpoint, IWindowManager window, IMapper mapper)
+        public VersionViewModel(IVersionEndpoint versionEndpoint, IWindowManager window, IMapper mapper, IEventAggregator events)
         {
             this.versionEndpoint = versionEndpoint;
             this.window = window;
             this.mapper = mapper;
+            this.events = events;
         }
 
         private BindingList<VersionDisplayModel> _versions;
@@ -36,6 +40,18 @@ namespace BetacraftLauncher.ViewModels
             {
                 _versions = value;
                 NotifyOfPropertyChange(() => Versions);
+            }
+        }
+
+        private VersionDisplayModel _selectedVersion;
+
+        public VersionDisplayModel SelectedVersion
+        {
+            get { return _selectedVersion; }
+            set
+            {
+                _selectedVersion = value;
+                NotifyOfPropertyChange(() => SelectedVersion);
             }
         }
 
@@ -69,6 +85,22 @@ namespace BetacraftLauncher.ViewModels
             //Console.WriteLine(versionList);
             var versions = mapper.Map<List<VersionDisplayModel>>(versionList);
             Versions = new BindingList<VersionDisplayModel>(versions);
+        }
+
+        public async Task SelectVersion()
+        {
+            if (SelectedVersion != null)
+            {
+                Properties.Settings.Default.lastInstance = SelectedVersion.Version;
+                Properties.Settings.Default.Save();
+            }
+
+            //launcherVM.CurrentVersion = SelectedVersion.Version;
+
+            //await events.PublishOnUIThreadAsync(new SelectVersionEvent());
+            await events.PublishOnUIThreadAsync(new SelectVersionEvent { CurrentVersionMessage = SelectedVersion.Version });
+
+            await TryCloseAsync();
         }
     }
 }

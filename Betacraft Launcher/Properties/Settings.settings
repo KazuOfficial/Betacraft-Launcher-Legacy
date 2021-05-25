@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BetacraftLauncher.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">English</Value>
+    </Setting>
+    <Setting Name="lastInstance" Type="System.String" Scope="User">
+      <Value Profile="(Default)">(default instance)</Value>
+    </Setting>
+    <Setting Name="Nickname" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
