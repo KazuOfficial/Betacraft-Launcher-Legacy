@@ -10,21 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BetacraftLauncher.Views
 {
     /// <summary>
-    /// Interaction logic for LauncherView.xaml
+    /// Interaction logic for VersionView.xaml
     /// </summary>
-    public partial class LauncherView : UserControl
+    public partial class VersionView : Window
     {
-        public LauncherView()
+        public VersionView()
         {
             InitializeComponent();
-            //this.versionEndpoint = versionEndpoint;
-            //Console.WriteLine(versionEndpoint.GetVersions());
         }
     }
 }

@@ -1,7 +1,13 @@
-﻿using BetacraftLauncher.ViewModels;
+﻿using AutoMapper;
+using BetacraftLauncher.Library;
+using BetacraftLauncher.Library.Models;
+using BetacraftLauncher.Models;
+using BetacraftLauncher.ViewModels;
 using Caliburn.Micro;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,18 +23,17 @@ namespace BetacraftLauncher
             Initialize();
         }
 
-        //private IMapper ConfigureAutomapper()
-        //{
-        //    var config = new MapperConfiguration(cfg =>
-        //    {
-        //        cfg.CreateMap<ProductModel, ProductDisplayModel>();
-        //        cfg.CreateMap<CartItemModel, CartItemDisplayModel>();
-        //    });
+        private IMapper ConfigureAutomapper()
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<VersionModel, VersionDisplayModel>();
+            });
 
-        //    var output = config.CreateMapper();
+            var output = config.CreateMapper();
 
-        //    return output;
-        //}
+            return output;
+        }
 
         //        private IConfiguration AddConfiguration()
         //        {
@@ -45,12 +50,23 @@ namespace BetacraftLauncher
         //            return builder.Build();
         //        }
 
+        private IConfiguration AddConfiguration()
+        {
+            IConfigurationBuilder builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
+
+            return builder.Build();
+        }
+
+
         protected override void Configure()
         {
 
-            //_container.Instance(ConfigureAutomapper());
+            _container.Instance(ConfigureAutomapper());
 
-            //_container.Instance(_container)
+            _container.Instance(_container)
+                  .PerRequest<IVersionEndpoint, VersionEndpoint>();
             //    .PerRequest<IProductEndpoint, ProductEndpoint>()
             //    .PerRequest<IUserEndpoint, UserEndpoint>()
             //    .PerRequest<ISaleEndpoint, SaleEndpoint>();
@@ -61,7 +77,7 @@ namespace BetacraftLauncher
                 //.Singleton<ILoggedInUserModel, LoggedInUserModel>()
                 //.Singleton<IAPIHelper, APIHelper>();
 
-            //_container.RegisterInstance(typeof(IConfiguration), "IConfiguration", AddConfiguration());
+            _container.RegisterInstance(typeof(IConfiguration), "IConfiguration", AddConfiguration());
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)
@@ -71,6 +87,7 @@ namespace BetacraftLauncher
                     viewModelType, viewModelType.ToString(), viewModelType));
         }
 
+        //protected override void OnStartup(object sender, StartupEventArgs e) => DisplayRootViewFor<ShellViewModel>();
         protected override void OnStartup(object sender, StartupEventArgs e) => DisplayRootViewFor<ShellViewModel>();
 
         protected override object GetInstance(Type service, string key) => _container.GetInstance(service, key);

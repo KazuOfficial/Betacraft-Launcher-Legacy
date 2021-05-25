@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetacraftLauncher", "Betacraft Launcher\BetacraftLauncher.csproj", "{6054E319-9A63-453B-90FA-932A1F5329A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetacraftLauncher.Library", "BetacraftLauncher.Library\BetacraftLauncher.Library.csproj", "{7C4E42C8-12EF-4514-9584-7CAE8FFEA02D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetacraftLauncher.Library", "BetacraftLauncher.Library\BetacraftLauncher.Library.csproj", "{7C4E42C8-12EF-4514-9584-7CAE8FFEA02D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetacraftLauncher.Tests", "BetacraftLauncher.Tests\BetacraftLauncher.Tests.csproj", "{D0F124BD-73CA-4653-979D-4C756CF87FD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7C4E42C8-12EF-4514-9584-7CAE8FFEA02D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C4E42C8-12EF-4514-9584-7CAE8FFEA02D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C4E42C8-12EF-4514-9584-7CAE8FFEA02D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0F124BD-73CA-4653-979D-4C756CF87FD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0F124BD-73CA-4653-979D-4C756CF87FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0F124BD-73CA-4653-979D-4C756CF87FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0F124BD-73CA-4653-979D-4C756CF87FD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
