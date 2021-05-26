@@ -18,6 +18,9 @@ namespace BetacraftLauncher.ViewModels
         private readonly IDownloadVersionEndpoint dwVersionEndpoint;
         private readonly ILaunchManager launchManager;
         private readonly IEventAggregator events;
+
+        private bool clickedPlay { get; set; }
+
         private string _nickname;
 
         public string Nickname
@@ -43,6 +46,33 @@ namespace BetacraftLauncher.ViewModels
         }
 
 
+        public bool CanPlay
+        {
+            get
+            {
+                bool output = true;
+                if (clickedPlay)
+                {
+                    output = false;
+                }
+
+                return output;
+            }
+        }
+
+        private Uri _browser;
+
+        public Uri Browser
+        {
+            get { return _browser; }
+            set
+            {
+                _browser = value;
+                NotifyOfPropertyChange(() => Browser);
+            }
+        }
+
+
         public LauncherViewModel(IWindowManager windowManager, VersionViewModel versionVM, IDownloadVersionEndpoint dwVersionEndpoint, ILaunchManager launchManager, IEventAggregator events)
         {
             this.windowManager = windowManager;
@@ -62,6 +92,9 @@ namespace BetacraftLauncher.ViewModels
             {
                 CurrentVersion = Properties.Settings.Default.lastInstance;
             }
+
+            Browser = new Uri("https://betacraft.pl/versions/");
+            NotifyOfPropertyChange(() => Browser);
         }
 
         public async Task VersionList()
@@ -71,6 +104,10 @@ namespace BetacraftLauncher.ViewModels
 
         public async Task Play()
         {
+            clickedPlay = true;
+
+            NotifyOfPropertyChange(() => CanPlay);
+
             if (Properties.Settings.Default.Nickname != Nickname)
             {
                 Properties.Settings.Default.Nickname = Nickname;
@@ -80,8 +117,6 @@ namespace BetacraftLauncher.ViewModels
             await this.dwVersionEndpoint.DownloadVersion(CurrentVersion);
 
             await launchManager.LaunchGame(CurrentVersion, Nickname, "kz");
-
-            Environment.Exit(0);
         }
 
         public void AuthorsGithub()
@@ -95,6 +130,18 @@ namespace BetacraftLauncher.ViewModels
         {
             CurrentVersion = message.CurrentVersionMessage;
             NotifyOfPropertyChange(() => CurrentVersion);
+        }
+
+        public void Changelog()
+        {
+            Browser = new Uri("https://betacraft.pl/versions/");
+            NotifyOfPropertyChange(() => Browser);
+        }
+
+        public void ServerList()
+        {
+            Browser = new Uri("https://betacraft.pl/server.jsp");
+            NotifyOfPropertyChange(() => Browser);
         }
     }
 }

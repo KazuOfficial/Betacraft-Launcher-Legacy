@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="Language" Type="System.String" Scope="User">
-      <Value Profile="(Default)">English</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="lastInstance" Type="System.String" Scope="User">
-      <Value Profile="(Default)">(default instance)</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Nickname" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

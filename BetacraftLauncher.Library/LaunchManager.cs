@@ -19,14 +19,9 @@ namespace BetacraftLauncher.Library
         {
             await DownloadNatives();
 
-            ProcessStartInfo processStartInfo = new ProcessStartInfo
-            {
-                CreateNoWindow = false,
-                UseShellExecute = false,
-                Arguments = $@"java -cp {launcherPath}\launcher\betacraft_wrapper.jar;{launcherPath}\versions\{versionName}.jar;{launcherPath}\bin\lwjgl.jar;{launcherPath}\bin\lwjgl_util.jar;{launcherPath}\bin\jinput.jar pl.moresteck.BCWrapper username={userName} sessionid= gameDir={launcherPath} versionName={versionName} frameName={frameName} width=854 height=480 assetsDir= nativesDir={nativesPath}"
-            };
+            Process.Start(@"java.exe", $@"-cp {launcherPath}\launcher\betacraft_wrapper.jar;{launcherPath}\versions\{versionName}.jar;{launcherPath}\bin\lwjgl.jar;{launcherPath}\bin\lwjgl_util.jar;{launcherPath}\bin\jinput.jar pl.moresteck.BCWrapper username={userName} sessionid= gameDir={launcherPath} versionName={versionName} frameName={frameName} width=854 height=480 assetsDir= nativesDir={nativesPath}");
 
-            Process.Start(processStartInfo);
+            Environment.Exit(0);
         }
 
         private async Task DownloadNatives()

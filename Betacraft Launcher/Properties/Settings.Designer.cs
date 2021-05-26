@@ -25,7 +25,7 @@ namespace BetacraftLauncher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("English")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Language {
             get {
                 return ((string)(this["Language"]));
@@ -37,7 +37,7 @@ namespace BetacraftLauncher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("(default instance)")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string lastInstance {
             get {
                 return ((string)(this["lastInstance"]));
