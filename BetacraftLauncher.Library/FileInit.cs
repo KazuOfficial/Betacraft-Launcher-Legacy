@@ -13,7 +13,7 @@ namespace BetacraftLauncher.Library
     {
         private readonly IConfiguration config;
 
-        private string launcherPath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy\";
+        private string launcherPath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy";
         public FileInit(IConfiguration config)
         {
             this.config = config;
@@ -23,16 +23,16 @@ namespace BetacraftLauncher.Library
         {
             if (!Directory.Exists(launcherPath))
             {
-                Directory.CreateDirectory(launcherPath + @"versions\jsons\");
-                Directory.CreateDirectory(launcherPath + @"launcher\lang\");
-                Directory.CreateDirectory(launcherPath + @"bin\natives\");
+                Directory.CreateDirectory(launcherPath + @"\versions\jsons\");
+                Directory.CreateDirectory(launcherPath + @"\launcher\lang\");
+                Directory.CreateDirectory(launcherPath + @"\bin\natives\");
             }
 
-            if (!File.Exists(launcherPath + @"launcher\betacraft_wrapper.jar"))
+            if (!File.Exists(launcherPath + @"\launcher\betacraft_wrapper.jar"))
             {
                 using (WebClient webClient = new())
                 {
-                    await webClient.DownloadFileTaskAsync(new Uri(config.GetValue<string>("wrapperURL")), launcherPath + $@"launcher\betacraft_wrapper.jar");
+                    await webClient.DownloadFileTaskAsync(new Uri(config.GetValue<string>("wrapperURL")), launcherPath + $@"\launcher\betacraft_wrapper.jar");
                 }
             }
         }

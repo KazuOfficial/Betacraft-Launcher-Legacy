@@ -71,13 +71,17 @@ namespace BetacraftLauncher.ViewModels
 
         public async Task Play()
         {
-            Properties.Settings.Default["Nickname"] = Nickname;
-            Properties.Settings.Default.Save();
+            if (Properties.Settings.Default.Nickname != Nickname)
+            {
+                Properties.Settings.Default.Nickname = Nickname;
+                Properties.Settings.Default.Save();
+            }
 
-            await this.dwVersionEndpoint.DownloadVersion("b1.7.3");
-            launchManager.LaunchGame("b1.7.3", "Kazu", "b1.7.3", "kz");
+            await this.dwVersionEndpoint.DownloadVersion(CurrentVersion);
 
-            await TryCloseAsync();
+            await launchManager.LaunchGame(CurrentVersion, Nickname, "kz");
+
+            Environment.Exit(0);
         }
 
         public void AuthorsGithub()

@@ -13,15 +13,14 @@ namespace BetacraftLauncher.ViewModels
 {
     public class ShellViewModel : Conductor<object>
     {
-        private readonly IEventAggregator events;
         private readonly IFileInit fileInit;
 
-        public ShellViewModel(IEventAggregator events, IFileInit fileInit)
+        public ShellViewModel(IFileInit fileInit)
         {
-            this.events = events;
             this.fileInit = fileInit;
 
             fileInit.FileInitialization();
+
             ActivateItemAsync(IoC.Get<LauncherViewModel>(), new CancellationToken());
             //ActivateItemAsync(IoC.Get<VersionViewModel>(), new CancellationToken());
         }
