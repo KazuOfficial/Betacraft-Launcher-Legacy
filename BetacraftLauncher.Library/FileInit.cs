@@ -11,13 +11,7 @@ namespace BetacraftLauncher.Library
 {
     public class FileInit : IFileInit
     {
-        private readonly IConfiguration config;
-
         private string launcherPath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy";
-        public FileInit(IConfiguration config)
-        {
-            this.config = config;
-        }
 
         public async Task FileInitialization()
         {
@@ -32,7 +26,7 @@ namespace BetacraftLauncher.Library
             {
                 using (WebClient webClient = new())
                 {
-                    await webClient.DownloadFileTaskAsync(new Uri(config.GetValue<string>("wrapperURL")), launcherPath + $@"\launcher\betacraft_wrapper.jar");
+                    await webClient.DownloadFileTaskAsync("https://files.betacraft.pl/improvedjsons/bcwrapper-1.0.1-pre3.jar", launcherPath + $@"\launcher\betacraft_wrapper.jar");
                 }
             }
         }

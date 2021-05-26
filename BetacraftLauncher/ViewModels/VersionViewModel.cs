@@ -65,14 +65,16 @@ namespace BetacraftLauncher.ViewModels
             }
             catch (Exception ex)
             {
-                dynamic settings = new ExpandoObject();
-                settings.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                settings.ResizeMode = ResizeMode.NoResize;
-                settings.Title = "Error";
+                //dynamic settings = new ExpandoObject();
+                //settings.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                //settings.ResizeMode = ResizeMode.NoResize;
+                //settings.Title = "Error";
+
+                MessageBox.Show(ex.Message);
 
                 await TryCloseAsync();
 
-                await window.ShowDialogAsync(ex.Message, null, settings);
+                //await window.ShowDialogAsync(ex.Message, null, settings);
             }
         }
 

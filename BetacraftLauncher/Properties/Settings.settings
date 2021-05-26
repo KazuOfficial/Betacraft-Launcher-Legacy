@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BetacraftLauncher.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">English</Value>
+    </Setting>
+    <Setting Name="version" Type="System.String" Scope="User">
+      <Value Profile="(Default)">b1.7.3</Value>
+    </Setting>
+    <Setting Name="nickname" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="instanceName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Minecraft</Value>
+    </Setting>
+    <Setting Name="keepLauncherOpen" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="discordRPC" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="jvmArguments" Type="System.String" Scope="User">
+      <Value Profile="(Default)">-Xmx512M</Value>
+    </Setting>
+    <Setting Name="width" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">854</Value>
+    </Setting>
+    <Setting Name="height" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">480</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

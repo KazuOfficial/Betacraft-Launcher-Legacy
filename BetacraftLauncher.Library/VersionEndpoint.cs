@@ -16,19 +16,14 @@ namespace BetacraftLauncher.Library
     public class VersionEndpoint : IVersionEndpoint
     {
         private string versionPath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy\launcher\versions.txt";
-        private readonly IConfiguration config;
 
-        public VersionEndpoint(IConfiguration config)
-        {
-            this.config = config;
-        }
         public async Task<List<VersionModel>> GetVersions()
         {
             try
             {
                 using (var webClient = new WebClient())
                 {
-                    string versionList = await webClient.DownloadStringTaskAsync(new Uri(this.config.GetValue<string>("versionListURL")));
+                    string versionList = await webClient.DownloadStringTaskAsync("https://files.betacraft.pl/launcher/assets/version_list.txt");
 
                     return await VersionListFileManager(versionList);
                 }

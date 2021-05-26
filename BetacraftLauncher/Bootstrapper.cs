@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -18,6 +19,7 @@ namespace BetacraftLauncher
     public class Bootstrapper : BootstrapperBase
     {
         private SimpleContainer _container = new SimpleContainer();
+
         public Bootstrapper()
         {
             Initialize();
@@ -78,7 +80,8 @@ namespace BetacraftLauncher
 
             _container
                 .Singleton<IWindowManager, WindowManager>()
-                .Singleton<IEventAggregator, EventAggregator>();
+                .Singleton<IEventAggregator, EventAggregator>()
+                .Singleton<IDiscordRPCManager, DiscordRPCManager>();
                 //.Singleton<ILoggedInUserModel, LoggedInUserModel>()
                 //.Singleton<IAPIHelper, APIHelper>();
 
@@ -100,5 +103,11 @@ namespace BetacraftLauncher
         protected override IEnumerable<object> GetAllInstances(Type service) => _container.GetAllInstances(service);
 
         protected override void BuildUp(object instance) => _container.BuildUp(instance);
+
+        //protected override void OnExit(object sender, EventArgs e)
+        //{
+        //    base.OnExit(sender, e);
+        //    Thread.Sleep(3000);
+        //}
     }
 }

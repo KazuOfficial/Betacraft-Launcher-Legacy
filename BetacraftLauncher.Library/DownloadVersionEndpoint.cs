@@ -13,13 +13,6 @@ namespace BetacraftLauncher.Library
     {
         private string launcherPath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy";
 
-        private readonly IConfiguration config;
-
-        public DownloadVersionEndpoint(IConfiguration config)
-        {
-            this.config = config;
-        }
-
         public async Task DownloadVersion(string versionName)
         {
             await DownloadVersionInfo(versionName);
@@ -37,7 +30,7 @@ namespace BetacraftLauncher.Library
         {
             using (WebClient webClient = new())
             {
-                await webClient.DownloadFileTaskAsync(config.GetValue<string>("versionJsonList") + $"{versionName}.info", launcherPath + $@"\versions\jsons\{versionName}.info");
+                await webClient.DownloadFileTaskAsync("https://files.betacraft.pl/launcher/assets/jsons/" + $"{versionName}.info", launcherPath + $@"\versions\jsons\{versionName}.info");
             }
         }
     }

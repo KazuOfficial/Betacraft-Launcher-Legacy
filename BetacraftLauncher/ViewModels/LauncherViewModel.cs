@@ -4,18 +4,21 @@ using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace BetacraftLauncher.ViewModels
 {
-    public class LauncherViewModel : Screen, IHandle<SelectVersionEvent>
+    public class LauncherViewModel : Screen, IHandle<SelectVersionEvent>, IHandle<InstanceSettingsEvent>
     {
         private readonly IWindowManager windowManager;
         private readonly VersionViewModel versionVM;
         private readonly LanguageViewModel languageVM;
+        private readonly InstanceViewModel instanceVM;
         private readonly IDownloadVersionEndpoint dwVersionEndpoint;
         private readonly ILaunchManager launchManager;
         private readonly IEventAggregator events;
@@ -33,6 +36,11 @@ namespace BetacraftLauncher.ViewModels
                 NotifyOfPropertyChange(() => Nickname);
             }
         }
+
+        public bool LauncherOpen { get; set; }
+        public string InstanceName { get; set; }
+        public int GameWidth { get; set; }
+        public int GameHeight { get; set; }
 
         private string _currentVersion;
 
@@ -74,28 +82,22 @@ namespace BetacraftLauncher.ViewModels
         }
 
 
-        public LauncherViewModel(IWindowManager windowManager, VersionViewModel versionVM, LanguageViewModel languageVM, IDownloadVersionEndpoint dwVersionEndpoint, ILaunchManager launchManager, IEventAggregator events)
+        public LauncherViewModel(IWindowManager windowManager, VersionViewModel versionVM, LanguageViewModel languageVM, InstanceViewModel instanceVM, IDownloadVersionEndpoint dwVersionEndpoint, ILaunchManager launchManager, IEventAggregator events)
         {
             this.windowManager = windowManager;
             this.versionVM = versionVM;
             this.languageVM = languageVM;
+            this.instanceVM = instanceVM;
             this.dwVersionEndpoint = dwVersionEndpoint;
             this.launchManager = launchManager;
             this.events = events;
 
             events.Subscribe(this);
 
-            if (Properties.Settings.Default.nickname is not null)
-            {
-                Nickname = Properties.Settings.Default.nickname;
-            }
-
-            if (Properties.Settings.Default is not null)
-            {
-                CurrentVersion = Properties.Settings.Default.version;
-            }
+            LoadSettings();
 
             Browser = new Uri("https://betacraft.pl/versions/");
+
             NotifyOfPropertyChange(() => Browser);
         }
 
@@ -106,19 +108,34 @@ namespace BetacraftLauncher.ViewModels
 
         public async Task Play()
         {
-            clickedPlay = true;
-
-            NotifyOfPropertyChange(() => CanPlay);
-
-            if (Properties.Settings.Default.nickname != Nickname)
+            if (Nickname.Length > 3)
             {
+                clickedPlay = true;
+
+                NotifyOfPropertyChange(() => CanPlay);
+
                 Properties.Settings.Default.nickname = Nickname;
                 Properties.Settings.Default.Save();
+
+                await this.dwVersionEndpoint.DownloadVersion(CurrentVersion);
+
+                await launchManager.LaunchGame(CurrentVersion, Nickname, InstanceName, GameWidth.ToString(), GameHeight.ToString());
+
+                if (LauncherOpen == false)
+                {
+                    Environment.Exit(0);
+                }
             }
+            else
+            {
+                //dynamic settings = new ExpandoObject();
+                //settings.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                //settings.ResizeMode = ResizeMode.NoResize;
+                //settings.Title = "Error";
 
-            await this.dwVersionEndpoint.DownloadVersion(CurrentVersion);
-
-            await launchManager.LaunchGame(CurrentVersion, Nickname, "kz");
+                //await windowManager.ShowDialogAsync("nah", null, settings);
+                MessageBox.Show("Invalid username!");
+            }
         }
 
         public void AuthorsGithub()
@@ -148,7 +165,48 @@ namespace BetacraftLauncher.ViewModels
 
         public async Task Language()
         {
-            await this.windowManager.ShowDialogAsync(this.languageVM);
+            await windowManager.ShowDialogAsync(this.languageVM);
+        }
+
+        public async Task Instance()
+        {
+            await windowManager.ShowDialogAsync(this.instanceVM);
+        }
+
+        public async Task HandleAsync(InstanceSettingsEvent message, CancellationToken cancellationToken)
+        {
+            //if (message.LauncherOpen == false)
+            //{
+            //    LauncherOpen = @"javaw";
+            //}
+            //else
+            //{
+            //    LauncherOpen = @"java";
+            //}
+
+            InstanceName = message.CurrentInstance;
+            GameWidth = message.GameWidth;
+            GameHeight = message.GameHeight;
+            LauncherOpen = message.LauncherOpen;
+        }
+
+        private void LoadSettings()
+        {
+            Nickname = Properties.Settings.Default.nickname;
+            CurrentVersion = Properties.Settings.Default.version;
+            GameHeight = Properties.Settings.Default.height;
+            GameWidth = Properties.Settings.Default.width;
+            InstanceName = Properties.Settings.Default.instanceName;
+            LauncherOpen = Properties.Settings.Default.keepLauncherOpen;
+
+            //if (Properties.Settings.Default.keepLauncherOpen)
+            //{
+            //    LauncherOpen = @"java";
+            //}
+            //else
+            //{
+            //    LauncherOpen = @"javaw";
+            //}
         }
     }
 }

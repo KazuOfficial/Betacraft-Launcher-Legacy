@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetacraftLauncher", "Betacraft Launcher\BetacraftLauncher.csproj", "{6054E319-9A63-453B-90FA-932A1F5329A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetacraftLauncher", "BetacraftLauncher\BetacraftLauncher.csproj", "{6054E319-9A63-453B-90FA-932A1F5329A2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetacraftLauncher.Library", "BetacraftLauncher.Library\BetacraftLauncher.Library.csproj", "{7C4E42C8-12EF-4514-9584-7CAE8FFEA02D}"
 EndProject

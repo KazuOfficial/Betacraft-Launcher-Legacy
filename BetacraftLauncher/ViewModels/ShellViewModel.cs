@@ -14,15 +14,21 @@ namespace BetacraftLauncher.ViewModels
     public class ShellViewModel : Conductor<object>
     {
         private readonly IFileInit fileInit;
+        private readonly IDiscordRPCManager discordRPC;
 
-        public ShellViewModel(IFileInit fileInit)
+        public ShellViewModel(IFileInit fileInit, IDiscordRPCManager discordRPC)
         {
             this.fileInit = fileInit;
+            this.discordRPC = discordRPC;
 
             fileInit.FileInitialization();
 
             ActivateItemAsync(IoC.Get<LauncherViewModel>(), new CancellationToken());
-            //ActivateItemAsync(IoC.Get<VersionViewModel>(), new CancellationToken());
+
+            if (Properties.Settings.Default.discordRPC)
+            {
+                discordRPC.Initialize();
+            }
         }
     }
 }

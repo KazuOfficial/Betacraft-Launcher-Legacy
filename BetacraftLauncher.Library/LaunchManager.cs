@@ -15,13 +15,11 @@ namespace BetacraftLauncher.Library
         private static string launcherPath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy";
         private string nativesPath { get; } = $@"{launcherPath}\bin\natives";
 
-        public async Task LaunchGame(string versionName, string userName, string frameName)
+        public async Task LaunchGame(string versionName, string userName, string frameName, string windowWidth, string windowHeight)
         {
             await DownloadNatives();
 
-            Process.Start(@"java.exe", $@"-cp {launcherPath}\launcher\betacraft_wrapper.jar;{launcherPath}\versions\{versionName}.jar;{launcherPath}\bin\lwjgl.jar;{launcherPath}\bin\lwjgl_util.jar;{launcherPath}\bin\jinput.jar pl.moresteck.BCWrapper username={userName} sessionid= gameDir={launcherPath} versionName={versionName} frameName={frameName} width=854 height=480 assetsDir= nativesDir={nativesPath}");
-
-            Environment.Exit(0);
+            Process.Start(@"javaw", $@"-cp {launcherPath}\launcher\betacraft_wrapper.jar;{launcherPath}\versions\{versionName}.jar;{launcherPath}\bin\lwjgl.jar;{launcherPath}\bin\lwjgl_util.jar;{launcherPath}\bin\jinput.jar pl.moresteck.BCWrapper username={userName} sessionid= gameDir={launcherPath} versionName={versionName} frameName={frameName} width={windowWidth} height={windowHeight} assetsDir= nativesDir={nativesPath}");
         }
 
         private async Task DownloadNatives()
