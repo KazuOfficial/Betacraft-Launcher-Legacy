@@ -15,6 +15,7 @@ namespace BetacraftLauncher.ViewModels
     {
         private readonly IWindowManager windowManager;
         private readonly VersionViewModel versionVM;
+        private readonly LanguageViewModel languageVM;
         private readonly IDownloadVersionEndpoint dwVersionEndpoint;
         private readonly ILaunchManager launchManager;
         private readonly IEventAggregator events;
@@ -73,24 +74,25 @@ namespace BetacraftLauncher.ViewModels
         }
 
 
-        public LauncherViewModel(IWindowManager windowManager, VersionViewModel versionVM, IDownloadVersionEndpoint dwVersionEndpoint, ILaunchManager launchManager, IEventAggregator events)
+        public LauncherViewModel(IWindowManager windowManager, VersionViewModel versionVM, LanguageViewModel languageVM, IDownloadVersionEndpoint dwVersionEndpoint, ILaunchManager launchManager, IEventAggregator events)
         {
             this.windowManager = windowManager;
             this.versionVM = versionVM;
+            this.languageVM = languageVM;
             this.dwVersionEndpoint = dwVersionEndpoint;
             this.launchManager = launchManager;
             this.events = events;
 
             events.Subscribe(this);
 
-            if (Properties.Settings.Default.Nickname is not null)
+            if (Properties.Settings.Default.nickname is not null)
             {
-                Nickname = Properties.Settings.Default.Nickname;
+                Nickname = Properties.Settings.Default.nickname;
             }
 
             if (Properties.Settings.Default is not null)
             {
-                CurrentVersion = Properties.Settings.Default.lastInstance;
+                CurrentVersion = Properties.Settings.Default.version;
             }
 
             Browser = new Uri("https://betacraft.pl/versions/");
@@ -108,9 +110,9 @@ namespace BetacraftLauncher.ViewModels
 
             NotifyOfPropertyChange(() => CanPlay);
 
-            if (Properties.Settings.Default.Nickname != Nickname)
+            if (Properties.Settings.Default.nickname != Nickname)
             {
-                Properties.Settings.Default.Nickname = Nickname;
+                Properties.Settings.Default.nickname = Nickname;
                 Properties.Settings.Default.Save();
             }
 
@@ -142,6 +144,11 @@ namespace BetacraftLauncher.ViewModels
         {
             Browser = new Uri("https://betacraft.pl/server.jsp");
             NotifyOfPropertyChange(() => Browser);
+        }
+
+        public async Task Language()
+        {
+            await this.windowManager.ShowDialogAsync(this.languageVM);
         }
     }
 }

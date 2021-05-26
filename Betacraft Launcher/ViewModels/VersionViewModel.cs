@@ -70,7 +70,7 @@ namespace BetacraftLauncher.ViewModels
                 settings.ResizeMode = ResizeMode.NoResize;
                 settings.Title = "Error";
 
-                //TryCloseAsync();
+                await TryCloseAsync();
 
                 await window.ShowDialogAsync(ex.Message, null, settings);
             }
@@ -81,7 +81,7 @@ namespace BetacraftLauncher.ViewModels
            //var versionList = await versionEndpoint.GetVersions();
             //Versions = new BindingList<VersionDisplayModel>(versionList);
 
-            var versionList = await this.versionEndpoint.GetVersions();
+            var versionList = await versionEndpoint.GetVersions();
             //Console.WriteLine(versionList);
             var versions = mapper.Map<List<VersionDisplayModel>>(versionList);
             Versions = new BindingList<VersionDisplayModel>(versions);
@@ -91,7 +91,7 @@ namespace BetacraftLauncher.ViewModels
         {
             if (SelectedVersion != null)
             {
-                Properties.Settings.Default.lastInstance = SelectedVersion.Version;
+                Properties.Settings.Default.version = SelectedVersion.Version;
                 Properties.Settings.Default.Save();
             }
 

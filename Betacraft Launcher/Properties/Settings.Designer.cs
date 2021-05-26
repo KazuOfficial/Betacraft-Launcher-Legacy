@@ -26,36 +26,36 @@ namespace BetacraftLauncher.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Language {
+        public string language {
             get {
-                return ((string)(this["Language"]));
+                return ((string)(this["language"]));
             }
             set {
-                this["Language"] = value;
+                this["language"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string lastInstance {
+        public string version {
             get {
-                return ((string)(this["lastInstance"]));
+                return ((string)(this["version"]));
             }
             set {
-                this["lastInstance"] = value;
+                this["version"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Nickname {
+        public string nickname {
             get {
-                return ((string)(this["Nickname"]));
+                return ((string)(this["nickname"]));
             }
             set {
-                this["Nickname"] = value;
+                this["nickname"] = value;
             }
         }
     }

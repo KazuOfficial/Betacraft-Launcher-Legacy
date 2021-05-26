@@ -28,6 +28,7 @@ namespace BetacraftLauncher
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<VersionModel, VersionDisplayModel>();
+                cfg.CreateMap<LanguageModel, LanguageDisplayModel>();
             });
 
             var output = config.CreateMapper();
@@ -69,7 +70,8 @@ namespace BetacraftLauncher
                   .PerRequest<IVersionEndpoint, VersionEndpoint>()
                   .PerRequest<IDownloadVersionEndpoint, DownloadVersionEndpoint>()
                   .PerRequest<IFileInit, FileInit>()
-                  .PerRequest<ILaunchManager, LaunchManager>();
+                  .PerRequest<ILaunchManager, LaunchManager>()
+                  .PerRequest<ILanguageEndpoint, LanguageEndpoint>();
             //    .PerRequest<IProductEndpoint, ProductEndpoint>()
             //    .PerRequest<IUserEndpoint, UserEndpoint>()
             //    .PerRequest<ISaleEndpoint, SaleEndpoint>();
