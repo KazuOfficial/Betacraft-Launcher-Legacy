@@ -3,6 +3,7 @@ using BetacraftLauncher.Library;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -16,7 +17,7 @@ namespace BetacraftLauncher.ViewModels
         private readonly IFileInit fileInit;
         private readonly IDiscordRPCManager discordRPC;
 
-        public ShellViewModel(IFileInit fileInit, IDiscordRPCManager discordRPC)
+        public ShellViewModel(IFileInit fileInit, IDiscordRPCManager discordRPCr)
         {
             this.fileInit = fileInit;
             this.discordRPC = discordRPC;

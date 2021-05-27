@@ -6,6 +6,7 @@ namespace BetacraftLauncher.Library
 {
     public interface ILanguageEndpoint
     {
+        Task DownloadLanguage(string languageName);
         Task<List<LanguageModel>> GetLanguages();
     }
 }

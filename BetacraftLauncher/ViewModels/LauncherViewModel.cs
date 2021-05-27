@@ -41,6 +41,7 @@ namespace BetacraftLauncher.ViewModels
         public string InstanceName { get; set; }
         public int GameWidth { get; set; }
         public int GameHeight { get; set; }
+        public string Arguments { get; set; }
 
         private string _currentVersion;
 
@@ -82,7 +83,8 @@ namespace BetacraftLauncher.ViewModels
         }
 
 
-        public LauncherViewModel(IWindowManager windowManager, VersionViewModel versionVM, LanguageViewModel languageVM, InstanceViewModel instanceVM, IDownloadVersionEndpoint dwVersionEndpoint, ILaunchManager launchManager, IEventAggregator events)
+        public LauncherViewModel(IWindowManager windowManager, VersionViewModel versionVM, LanguageViewModel languageVM, InstanceViewModel instanceVM, 
+            IDownloadVersionEndpoint dwVersionEndpoint, ILaunchManager launchManager, IEventAggregator events)
         {
             this.windowManager = windowManager;
             this.versionVM = versionVM;
@@ -119,7 +121,7 @@ namespace BetacraftLauncher.ViewModels
 
                 await this.dwVersionEndpoint.DownloadVersion(CurrentVersion);
 
-                await launchManager.LaunchGame(CurrentVersion, Nickname, InstanceName, GameWidth.ToString(), GameHeight.ToString());
+                await launchManager.LaunchGame(CurrentVersion, Nickname, InstanceName, GameWidth.ToString(), GameHeight.ToString(), Arguments);
 
                 if (LauncherOpen == false)
                 {
@@ -128,12 +130,6 @@ namespace BetacraftLauncher.ViewModels
             }
             else
             {
-                //dynamic settings = new ExpandoObject();
-                //settings.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                //settings.ResizeMode = ResizeMode.NoResize;
-                //settings.Title = "Error";
-
-                //await windowManager.ShowDialogAsync("nah", null, settings);
                 MessageBox.Show("Invalid username!");
             }
         }
@@ -175,19 +171,11 @@ namespace BetacraftLauncher.ViewModels
 
         public async Task HandleAsync(InstanceSettingsEvent message, CancellationToken cancellationToken)
         {
-            //if (message.LauncherOpen == false)
-            //{
-            //    LauncherOpen = @"javaw";
-            //}
-            //else
-            //{
-            //    LauncherOpen = @"java";
-            //}
-
             InstanceName = message.CurrentInstance;
             GameWidth = message.GameWidth;
             GameHeight = message.GameHeight;
             LauncherOpen = message.LauncherOpen;
+            Arguments = message.Arguments;
         }
 
         private void LoadSettings()
@@ -198,15 +186,7 @@ namespace BetacraftLauncher.ViewModels
             GameWidth = Properties.Settings.Default.width;
             InstanceName = Properties.Settings.Default.instanceName;
             LauncherOpen = Properties.Settings.Default.keepLauncherOpen;
-
-            //if (Properties.Settings.Default.keepLauncherOpen)
-            //{
-            //    LauncherOpen = @"java";
-            //}
-            //else
-            //{
-            //    LauncherOpen = @"javaw";
-            //}
+            Arguments = Properties.Settings.Default.jvmArguments;
         }
     }
 }

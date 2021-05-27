@@ -11,7 +11,8 @@ namespace BetacraftLauncher.Library
 {
     public class LanguageEndpoint : ILanguageEndpoint
     {
-        private string languagePath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy\launcher\lang\lang.txt";
+        //private string languagePath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy\launcher\lang\lang.txt";
+        private string languagePath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy\launcher\lang\";
         public async Task<List<LanguageModel>> GetLanguages()
         {
             try
@@ -25,7 +26,24 @@ namespace BetacraftLauncher.Library
             }
             catch (Exception ex)
             {
+                throw new Exception(ex.ToString());
+            }
+        }
 
+        public async Task DownloadLanguage(string languageName)
+        {
+            try
+            {
+                if (!File.Exists($@"{languagePath}\{languageName}.txt"))
+                {
+                    using (var webClient = new WebClient())
+                    {
+                        await webClient.DownloadFileTaskAsync($@"https://betacraft.pl/lang/1.09_11/{languageName}.txt", $@"{languagePath}\{languageName}.txt");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
                 throw new Exception(ex.ToString());
             }
         }
@@ -34,9 +52,9 @@ namespace BetacraftLauncher.Library
         {
             List<LanguageModel> result = new();
 
-            await File.WriteAllTextAsync(languagePath, languageList);
+            await File.WriteAllTextAsync(languagePath + "lang.txt", languageList);
 
-            var lines = File.ReadLines(languagePath);
+            var lines = File.ReadLines(languagePath + "lang.txt");
 
             foreach (var line in lines)
             {
@@ -44,7 +62,7 @@ namespace BetacraftLauncher.Library
                 result.Add(new LanguageModel { Language = x[0] });
             }
 
-            File.Delete(languagePath);
+            File.Delete(languagePath + "lang.txt");
 
             return result;
         }

@@ -65,44 +65,35 @@ namespace BetacraftLauncher.ViewModels
             }
             catch (Exception ex)
             {
-                //dynamic settings = new ExpandoObject();
-                //settings.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                //settings.ResizeMode = ResizeMode.NoResize;
-                //settings.Title = "Error";
-
                 MessageBox.Show(ex.Message);
 
                 await TryCloseAsync();
-
-                //await window.ShowDialogAsync(ex.Message, null, settings);
             }
         }
 
         private async Task LoadVersions()
         {
-           //var versionList = await versionEndpoint.GetVersions();
-            //Versions = new BindingList<VersionDisplayModel>(versionList);
-
             var versionList = await versionEndpoint.GetVersions();
-            //Console.WriteLine(versionList);
             var versions = mapper.Map<List<VersionDisplayModel>>(versionList);
             Versions = new BindingList<VersionDisplayModel>(versions);
         }
 
         public async Task SelectVersion()
         {
+            SaveVersionSettings();
+
+            await events.PublishOnUIThreadAsync(new SelectVersionEvent { CurrentVersionMessage = SelectedVersion.Version });
+
+            await TryCloseAsync();
+        }
+
+        private void SaveVersionSettings()
+        {
             if (SelectedVersion != null)
             {
                 Properties.Settings.Default.version = SelectedVersion.Version;
                 Properties.Settings.Default.Save();
             }
-
-            //launcherVM.CurrentVersion = SelectedVersion.Version;
-
-            //await events.PublishOnUIThreadAsync(new SelectVersionEvent());
-            await events.PublishOnUIThreadAsync(new SelectVersionEvent { CurrentVersionMessage = SelectedVersion.Version });
-
-            await TryCloseAsync();
         }
     }
 }

@@ -60,38 +60,36 @@ namespace BetacraftLauncher.ViewModels
             }
             catch (Exception ex)
             {
-                dynamic settings = new ExpandoObject();
-                settings.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                settings.ResizeMode = ResizeMode.NoResize;
-                settings.Title = "Error";
+                MessageBox.Show(ex.Message);
 
                 await TryCloseAsync();
-
-                await window.ShowDialogAsync(ex.Message, null, settings);
             }
         }
 
         private async Task LoadLanguages()
         {
-            //var versionList = await versionEndpoint.GetVersions();
-            //Versions = new BindingList<VersionDisplayModel>(versionList);
-
             var languageList = await languageEndpoint.GetLanguages();
-            //Console.WriteLine(versionList);
             var languages = mapper.Map<List<LanguageDisplayModel>>(languageList);
             Languages = new BindingList<LanguageDisplayModel>(languages);
         }
 
         public async Task SelectLanguage()
         {
+            SaveLanguageSettings();
+            //await events.PublishOnUIThreadAsync(new SelectVersionEvent { CurrentVersionMessage = SelectedVersion.Version });
+
+            await languageEndpoint.DownloadLanguage(SelectedLanguage.Language);
+
+            await TryCloseAsync();
+        }
+
+        private void SaveLanguageSettings()
+        {
             if (SelectedLanguage != null)
             {
                 Properties.Settings.Default.language = SelectedLanguage.Language;
                 Properties.Settings.Default.Save();
             }
-            //await events.PublishOnUIThreadAsync(new SelectVersionEvent { CurrentVersionMessage = SelectedVersion.Version });
-
-            await TryCloseAsync();
         }
     }
 }

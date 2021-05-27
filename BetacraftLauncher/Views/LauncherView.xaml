@@ -36,7 +36,7 @@
         <Button x:Name="VersionList" HorizontalAlignment="Left" MaxHeight="25" Grid.Row="2" MaxWidth="100" Padding="10 0 10 0" Margin="55 -10 0 0">Select Version</Button>
         <Button x:Name="Instance" HorizontalAlignment="Left" MaxHeight="25" Grid.Row="2" MaxWidth="100" Padding="14 0 13 0" Margin="55 48 0 0">Edit Instance</Button>
 
-        <Button x:Name="Language" Grid.Row="2" MaxHeight="28" MaxWidth="100" Padding="10 0 10 0" HorizontalAlignment="Right" Margin="0 20 55 0">Language</Button>
+        <Button x:Name="Language" Grid.Row="2" MaxHeight="28" MaxWidth="100" Padding="10 0 10 0" HorizontalAlignment="Right" Margin="0 20 55 0" IsEnabled="False">Language</Button>
         <Button x:Name="Changelog" Grid.Row="0" MaxHeight="28" MaxWidth="100" Padding="10 0 10 0" HorizontalAlignment="Center" Margin="0 5 90 5">Changelog</Button>
         
         <Button x:Name="ServerList" Grid.Row="0" MaxHeight="28" MaxWidth="100" Padding="10 0 10 0" HorizontalAlignment="Center" Margin="90 5 0 5">Server list</Button>

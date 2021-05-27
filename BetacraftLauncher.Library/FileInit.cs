@@ -29,6 +29,14 @@ namespace BetacraftLauncher.Library
                     await webClient.DownloadFileTaskAsync("https://files.betacraft.pl/improvedjsons/bcwrapper-1.0.1-pre3.jar", launcherPath + $@"\launcher\betacraft_wrapper.jar");
                 }
             }
+
+            if (!File.Exists(launcherPath + @"\launcher\lang\English.txt"))
+            {
+                using (WebClient webClient = new())
+                {
+                    await webClient.DownloadFileTaskAsync("https://betacraft.pl/lang/1.09_11/English.txt", launcherPath + $@"\launcher\lang\English.txt");
+                }
+            }
         }
     }
 }

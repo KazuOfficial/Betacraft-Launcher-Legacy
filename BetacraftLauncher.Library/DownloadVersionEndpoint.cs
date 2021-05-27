@@ -17,7 +17,6 @@ namespace BetacraftLauncher.Library
         {
             await DownloadVersionInfo(versionName);
 
-            //var versionURL = File.ReadAllLines(config.GetValue<string>("versionJsonList") + $"{versionName}.info").Where(line => line.Contains("url:"));
             var versionURL = File.ReadAllLines(launcherPath + $@"\versions\jsons\{versionName}.info").Where(line => line.Contains("url:")).First().Replace("url:", "");
 
             using (WebClient webClient = new())
