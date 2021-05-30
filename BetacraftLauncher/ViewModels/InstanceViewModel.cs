@@ -118,7 +118,7 @@ namespace BetacraftLauncher.ViewModels
 
             if (RPC == false)
             {
-                //discordRPC.Deinitialize();
+                discordRPC.Deinitialize();
             }
             else
             {

@@ -76,7 +76,6 @@ namespace BetacraftLauncher.ViewModels
         public async Task SelectLanguage()
         {
             SaveLanguageSettings();
-            //await events.PublishOnUIThreadAsync(new SelectVersionEvent { CurrentVersionMessage = SelectedVersion.Version });
 
             await languageEndpoint.DownloadLanguage(SelectedLanguage.Language);
 

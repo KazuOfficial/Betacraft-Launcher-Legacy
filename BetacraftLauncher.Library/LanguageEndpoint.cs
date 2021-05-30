@@ -11,40 +11,25 @@ namespace BetacraftLauncher.Library
 {
     public class LanguageEndpoint : ILanguageEndpoint
     {
-        //private string languagePath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy\launcher\lang\lang.txt";
         private string languagePath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy\launcher\lang\";
         public async Task<List<LanguageModel>> GetLanguages()
         {
-            try
+            using (var webClient = new WebClient())
             {
-                using (var webClient = new WebClient())
-                {
-                    string versionList = await webClient.DownloadStringTaskAsync("https://betacraft.pl/lang/1.09_11/");
+                string versionList = await webClient.DownloadStringTaskAsync("https://betacraft.pl/lang/1.09_11/");
 
-                    return await LanguageFileManager(versionList);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.ToString());
+                return await LanguageFileManager(versionList);
             }
         }
 
         public async Task DownloadLanguage(string languageName)
         {
-            try
+            if (!File.Exists($@"{languagePath}\{languageName}.txt"))
             {
-                if (!File.Exists($@"{languagePath}\{languageName}.txt"))
+                using (var webClient = new WebClient())
                 {
-                    using (var webClient = new WebClient())
-                    {
-                        await webClient.DownloadFileTaskAsync($@"https://betacraft.pl/lang/1.09_11/{languageName}.txt", $@"{languagePath}\{languageName}.txt");
-                    }
+                    await webClient.DownloadFileTaskAsync($@"https://betacraft.pl/lang/1.09_11/{languageName}.txt", $@"{languagePath}\{languageName}.txt");
                 }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.ToString());
             }
         }
 

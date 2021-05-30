@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Dynamic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -89,9 +90,12 @@ namespace BetacraftLauncher.ViewModels
         {
             SaveVersionSettings();
 
-            await events.PublishOnUIThreadAsync(new SelectVersionEvent { CurrentVersionMessage = SelectedVersion.Version });
+            if (SelectedVersion != null)
+            {
+                await events.PublishOnUIThreadAsync(new SelectVersionEvent { CurrentVersionMessage = SelectedVersion.Version });
 
-            logger.Info($"Version selected: {SelectedVersion.Version}");
+                logger.Info($"Version selected: {SelectedVersion.Version}");
+            }
 
             await TryCloseAsync();
         }

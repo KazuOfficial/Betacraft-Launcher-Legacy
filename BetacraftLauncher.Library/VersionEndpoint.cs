@@ -19,19 +19,11 @@ namespace BetacraftLauncher.Library
 
         public async Task<List<VersionModel>> GetVersions()
         {
-            try
+            using (var webClient = new WebClient())
             {
-                using (var webClient = new WebClient())
-                {
-                    string versionList = await webClient.DownloadStringTaskAsync("https://files.betacraft.pl/launcher/assets/version_list.txt");
+                string versionList = await webClient.DownloadStringTaskAsync("https://files.betacraft.pl/launcher/assets/version_list.txt");
 
-                    return await VersionListFileManager(versionList);
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.ToString());
+                return await VersionListFileManager(versionList);
             }
         }
 

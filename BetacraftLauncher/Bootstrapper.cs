@@ -39,21 +39,6 @@ namespace BetacraftLauncher
             return output;
         }
 
-        //        private IConfiguration AddConfiguration()
-        //        {
-        //            IConfigurationBuilder builder = new ConfigurationBuilder()
-        //                .SetBasePath(Directory.GetCurrentDirectory())
-        //                .AddJsonFile("appsettings.json");
-
-        //#if DEBUG
-        //            builder.AddJsonFile("appsettings.development.json", optional: true, reloadOnChange: true);
-        //#else
-        //            builder.AddJsonFile("appsettings.production.json", optional: true, reloadOnChange: true);
-        //#endif
-
-        //            return builder.Build();
-        //        }
-
         private IConfiguration AddConfiguration()
         {
             IConfigurationBuilder builder = new ConfigurationBuilder()
@@ -75,17 +60,12 @@ namespace BetacraftLauncher
                   .PerRequest<IFileInit, FileInit>()
                   .PerRequest<ILaunchManager, LaunchManager>()
                   .PerRequest<ILanguageEndpoint, LanguageEndpoint>();
-            //    .PerRequest<IProductEndpoint, ProductEndpoint>()
-            //    .PerRequest<IUserEndpoint, UserEndpoint>()
-            //    .PerRequest<ISaleEndpoint, SaleEndpoint>();
 
             _container
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
                 .Singleton<ILog, LogHelper>()
                 .Singleton<IDiscordRPCManager, DiscordRPCManager>();
-                //.Singleton<ILoggedInUserModel, LoggedInUserModel>()
-                //.Singleton<IAPIHelper, APIHelper>();
 
             _container.RegisterInstance(typeof(IConfiguration), "IConfiguration", AddConfiguration());
 
@@ -96,8 +76,6 @@ namespace BetacraftLauncher
                 .ForEach(viewModelType => _container.RegisterPerRequest(
                     viewModelType, viewModelType.ToString(), viewModelType));
         }
-
-        //protected override void OnStartup(object sender, StartupEventArgs e) => DisplayRootViewFor<ShellViewModel>();
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
             var fileInit = IoC.Get<IFileInit>();

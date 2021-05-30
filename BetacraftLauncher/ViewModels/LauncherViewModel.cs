@@ -128,7 +128,7 @@ namespace BetacraftLauncher.ViewModels
 
                 SaveUsername();
 
-                await this.dwVersionEndpoint.DownloadVersion(CurrentVersion);
+                await dwVersionEndpoint.DownloadVersion(CurrentVersion);
 
                 await launchManager.LaunchGame(CurrentVersion, Nickname, InstanceName, GameWidth.ToString(), GameHeight.ToString(), Arguments);
 
