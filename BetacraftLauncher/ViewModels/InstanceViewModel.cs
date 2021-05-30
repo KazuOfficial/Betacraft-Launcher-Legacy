@@ -16,12 +16,15 @@ namespace BetacraftLauncher.ViewModels
 
         private readonly IEventAggregator events;
         private readonly IDiscordRPCManager discordRPC;
+        private readonly ILog logger;
 
-        public InstanceViewModel(IEventAggregator events, IDiscordRPCManager discordRPC)
+        public InstanceViewModel(IEventAggregator events, IDiscordRPCManager discordRPC, ILog logger)
         {
-            LoadSettings();
             this.events = events;
             this.discordRPC = discordRPC;
+            this.logger = logger;
+
+            LoadSettings();
         }
 
         private string _instanceName;
@@ -96,9 +99,17 @@ namespace BetacraftLauncher.ViewModels
             }
         }
 
+        protected override void OnViewLoaded(object view)
+        {
+            base.OnViewLoaded(view);
+
+            logger.Info("InstanceViewModel started.");
+        }
+
         public void DirectoryButton()
         {
             Process.Start("explorer.exe", launcherPath);
+            logger.Info($"DirectoryButton clicked: {launcherPath}");
         }
 
         public async Task SubmitSettings()
@@ -112,6 +123,7 @@ namespace BetacraftLauncher.ViewModels
             else
             {
                 discordRPC.Initialize();
+                logger.Info("Discord RPC Initialized.");
             }
 
             await events.PublishOnUIThreadAsync(new InstanceSettingsEvent { 
@@ -121,6 +133,8 @@ namespace BetacraftLauncher.ViewModels
                 GameWidth = Width,
                 GameHeight = Height
             });
+
+            logger.Info("Event InstanceSettingsEvent sent.");
 
             await TryCloseAsync();
         }
@@ -134,6 +148,8 @@ namespace BetacraftLauncher.ViewModels
             Properties.Settings.Default.width = Width;
             Properties.Settings.Default.height = Height;
             Properties.Settings.Default.Save();
+
+            logger.Info("InstanceViewModel settings saved.");
         }
 
         private void LoadSettings()
@@ -144,6 +160,8 @@ namespace BetacraftLauncher.ViewModels
             Arguments = Properties.Settings.Default.jvmArguments;
             Width = Properties.Settings.Default.width;
             Height = Properties.Settings.Default.height;
+
+            logger.Info("Settings loaded to InstanceViewModel.");
         }
     }
 }

@@ -14,15 +14,15 @@ namespace BetacraftLauncher.ViewModels
 {
     public class ShellViewModel : Conductor<object>
     {
-        private readonly IFileInit fileInit;
         private readonly IDiscordRPCManager discordRPC;
+        private readonly ILog logger;
 
-        public ShellViewModel(IFileInit fileInit, IDiscordRPCManager discordRPCr)
+        public ShellViewModel(IDiscordRPCManager discordRPC, ILog logger)
         {
-            this.fileInit = fileInit;
             this.discordRPC = discordRPC;
+            this.logger = logger;
 
-            fileInit.FileInitialization();
+            logger.Info("Betacraft Launcher Legacy started!");
 
             ActivateItemAsync(IoC.Get<LauncherViewModel>(), new CancellationToken());
 

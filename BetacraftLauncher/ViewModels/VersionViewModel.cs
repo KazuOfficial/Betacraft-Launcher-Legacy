@@ -22,13 +22,15 @@ namespace BetacraftLauncher.ViewModels
         private readonly IWindowManager window;
         private readonly IMapper mapper;
         private readonly IEventAggregator events;
+        private readonly ILog logger;
 
-        public VersionViewModel(IVersionEndpoint versionEndpoint, IWindowManager window, IMapper mapper, IEventAggregator events)
+        public VersionViewModel(IVersionEndpoint versionEndpoint, IWindowManager window, IMapper mapper, IEventAggregator events, ILog logger)
         {
             this.versionEndpoint = versionEndpoint;
             this.window = window;
             this.mapper = mapper;
             this.events = events;
+            this.logger = logger;
         }
 
         private BindingList<VersionDisplayModel> _versions;
@@ -59,6 +61,8 @@ namespace BetacraftLauncher.ViewModels
         {
             base.OnViewLoaded(view);
 
+            logger.Info("VersionViewModel started.");
+
             try
             {
                 await LoadVersions();
@@ -66,6 +70,7 @@ namespace BetacraftLauncher.ViewModels
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                logger.Error(ex);
 
                 await TryCloseAsync();
             }
@@ -76,6 +81,8 @@ namespace BetacraftLauncher.ViewModels
             var versionList = await versionEndpoint.GetVersions();
             var versions = mapper.Map<List<VersionDisplayModel>>(versionList);
             Versions = new BindingList<VersionDisplayModel>(versions);
+
+            logger.Info($"VersionDisplayModel binded to Versions BindingList. Versions in list: {Versions.Count}");
         }
 
         public async Task SelectVersion()
@@ -83,6 +90,8 @@ namespace BetacraftLauncher.ViewModels
             SaveVersionSettings();
 
             await events.PublishOnUIThreadAsync(new SelectVersionEvent { CurrentVersionMessage = SelectedVersion.Version });
+
+            logger.Info($"Version selected: {SelectedVersion.Version}");
 
             await TryCloseAsync();
         }
@@ -93,6 +102,8 @@ namespace BetacraftLauncher.ViewModels
             {
                 Properties.Settings.Default.version = SelectedVersion.Version;
                 Properties.Settings.Default.Save();
+
+                logger.Info($"SelectedVersion saved to settings: {SelectedVersion.Version}");
             }
         }
     }

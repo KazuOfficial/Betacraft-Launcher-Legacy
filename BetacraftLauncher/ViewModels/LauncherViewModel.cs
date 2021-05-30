@@ -22,6 +22,7 @@ namespace BetacraftLauncher.ViewModels
         private readonly IDownloadVersionEndpoint dwVersionEndpoint;
         private readonly ILaunchManager launchManager;
         private readonly IEventAggregator events;
+        private readonly ILog logger;
 
         private bool clickedPlay { get; set; }
 
@@ -84,7 +85,7 @@ namespace BetacraftLauncher.ViewModels
 
 
         public LauncherViewModel(IWindowManager windowManager, VersionViewModel versionVM, LanguageViewModel languageVM, InstanceViewModel instanceVM, 
-            IDownloadVersionEndpoint dwVersionEndpoint, ILaunchManager launchManager, IEventAggregator events)
+            IDownloadVersionEndpoint dwVersionEndpoint, ILaunchManager launchManager, IEventAggregator events, ILog logger)
         {
             this.windowManager = windowManager;
             this.versionVM = versionVM;
@@ -93,14 +94,23 @@ namespace BetacraftLauncher.ViewModels
             this.dwVersionEndpoint = dwVersionEndpoint;
             this.launchManager = launchManager;
             this.events = events;
+            this.logger = logger;
 
             events.Subscribe(this);
 
+            logger.Info("LauncherViewModel launched");
+
             LoadSettings();
 
-            Browser = new Uri("https://betacraft.pl/versions/");
+            BrowserInit();
+        }
 
+        private void BrowserInit()
+        {
+            Browser = new Uri("https://betacraft.pl/versions/");
             NotifyOfPropertyChange(() => Browser);
+
+            logger.Info($"WebBrowser's Uri set to {Browser}");
         }
 
         public async Task VersionList()
@@ -116,22 +126,33 @@ namespace BetacraftLauncher.ViewModels
 
                 NotifyOfPropertyChange(() => CanPlay);
 
-                Properties.Settings.Default.nickname = Nickname;
-                Properties.Settings.Default.Save();
+                SaveUsername();
 
                 await this.dwVersionEndpoint.DownloadVersion(CurrentVersion);
 
                 await launchManager.LaunchGame(CurrentVersion, Nickname, InstanceName, GameWidth.ToString(), GameHeight.ToString(), Arguments);
 
+                logger.Info($"Game launched with settings: Version: {CurrentVersion}, Username: {Nickname}, Instance name: {InstanceName}, Width: {GameWidth}, Height: {GameHeight}, Arguments: {Arguments}.");
+
                 if (LauncherOpen == false)
                 {
+                    logger.Info($"LauncherOpen: {LauncherOpen}. Exiting...");
                     Environment.Exit(0);
                 }
             }
             else
             {
                 MessageBox.Show("Invalid username!");
+                logger.Error(new Exception($"Invalid username: {Nickname}"));
             }
+        }
+
+        private void SaveUsername()
+        {
+            Properties.Settings.Default.nickname = Nickname;
+            Properties.Settings.Default.Save();
+
+            logger.Info($"Username {Nickname} saved to settings.");
         }
 
         public void AuthorsGithub()
@@ -139,24 +160,29 @@ namespace BetacraftLauncher.ViewModels
             Process.Start(new ProcessStartInfo("https://github.com/KazuOfficial") { 
                 UseShellExecute = true
             });
+
+            logger.Info("Author's Github opened");
         }
 
         public async Task HandleAsync(SelectVersionEvent message, CancellationToken cancellationToken)
         {
             CurrentVersion = message.CurrentVersionMessage;
             NotifyOfPropertyChange(() => CurrentVersion);
+            logger.Info($"Received SelectVersionEvent event with content: {message.CurrentVersionMessage}");
         }
 
         public void Changelog()
         {
             Browser = new Uri("https://betacraft.pl/versions/");
             NotifyOfPropertyChange(() => Browser);
+            logger.Info($"WebBrowser's Uri set to {Browser}");
         }
 
         public void ServerList()
         {
             Browser = new Uri("https://betacraft.pl/server.jsp");
             NotifyOfPropertyChange(() => Browser);
+            logger.Info($"WebBrowser's Uri set to {Browser}");
         }
 
         public async Task Language()
@@ -176,6 +202,8 @@ namespace BetacraftLauncher.ViewModels
             GameHeight = message.GameHeight;
             LauncherOpen = message.LauncherOpen;
             Arguments = message.Arguments;
+
+            logger.Info($"Received InstanceSettingsEvent with content: InstanceName: {message.CurrentInstance}, GameWidth: {message.GameWidth}, GameHeight: {message.GameHeight}, LauncherOpen: {message.LauncherOpen}, Arguments: {message.Arguments}.");
         }
 
         private void LoadSettings()
@@ -187,6 +215,8 @@ namespace BetacraftLauncher.ViewModels
             InstanceName = Properties.Settings.Default.instanceName;
             LauncherOpen = Properties.Settings.Default.keepLauncherOpen;
             Arguments = Properties.Settings.Default.jvmArguments;
+
+            logger.Info("Settings loaded to LauncherViewModel.");
         }
     }
 }

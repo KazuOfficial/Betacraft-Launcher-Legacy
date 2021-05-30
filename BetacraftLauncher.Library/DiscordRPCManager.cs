@@ -55,11 +55,11 @@ namespace BetacraftLauncher.Library
             });
         }
 
-        //public void Deinitialize()
-        //{
-        //    client = new DiscordRpcClient(config.GetValue<string>("discordClientKey"));
+        public void Deinitialize()
+        {
+            client = new DiscordRpcClient(config.GetValue<string>("discordClientKey"));
 
-        //    client.Dispose();
-        //}
+            client.Dispose();
+        }
     }
 }

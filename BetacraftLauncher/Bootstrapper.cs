@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BetacraftLauncher.Helpers;
 using BetacraftLauncher.Library;
 using BetacraftLauncher.Library.Models;
 using BetacraftLauncher.Models;
@@ -81,6 +82,7 @@ namespace BetacraftLauncher
             _container
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
+                .Singleton<ILog, LogHelper>()
                 .Singleton<IDiscordRPCManager, DiscordRPCManager>();
                 //.Singleton<ILoggedInUserModel, LoggedInUserModel>()
                 //.Singleton<IAPIHelper, APIHelper>();
@@ -96,7 +98,12 @@ namespace BetacraftLauncher
         }
 
         //protected override void OnStartup(object sender, StartupEventArgs e) => DisplayRootViewFor<ShellViewModel>();
-        protected override void OnStartup(object sender, StartupEventArgs e) => DisplayRootViewFor<ShellViewModel>();
+        protected override void OnStartup(object sender, StartupEventArgs e)
+        {
+            var fileInit = IoC.Get<IFileInit>();
+            fileInit.FileInitialization();
+            DisplayRootViewFor<ShellViewModel>();
+        }
 
         protected override object GetInstance(Type service, string key) => _container.GetInstance(service, key);
 
@@ -104,10 +111,10 @@ namespace BetacraftLauncher
 
         protected override void BuildUp(object instance) => _container.BuildUp(instance);
 
-        //protected override void OnExit(object sender, EventArgs e)
-        //{
-        //    base.OnExit(sender, e);
-        //    Thread.Sleep(3000);
-        //}
+        protected override void OnExit(object sender, EventArgs e)
+        {
+            var discordRPC = IoC.Get<IDiscordRPCManager>();
+            discordRPC.Deinitialize();
+        }
     }
 }

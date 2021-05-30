@@ -1,9 +1,7 @@
-﻿using System.Threading.Tasks;
-
-namespace BetacraftLauncher.Library
+﻿namespace BetacraftLauncher.Library
 {
     public interface IFileInit
     {
-        Task FileInitialization();
+        void FileInitialization();
     }
 }
