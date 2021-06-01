@@ -27,25 +27,5 @@ jobs:
         # Artifact name
         name: upload artfacts
         # A file, directory or wildcard pattern that describes what to upload
-        path: ./Chip8Emulator/bin/Debug/net5.0/
-  build-ubuntu:
+        path: ./
 
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 5.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.2.3
-      with:
-        # Artifact name
-        name: ubuntu
-        # A file, directory or wildcard pattern that describes what to upload
-        path: ./Chip8Emulator/bin/Debug/net5.0/
