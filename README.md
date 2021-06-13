@@ -6,7 +6,7 @@ Status](https://travis-ci.com/KazuOfficial/Betacraft-Launcher.svg?branch=master)
 <br />
 <p align="center">
   <a href="https://github.com/KazuOfficial/Betacraft-Launcher">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="500" height="80">
   </a>
 
   <h3 align="center">Betacraft Launcher</h3>
@@ -15,6 +15,7 @@ Status](https://travis-ci.com/KazuOfficial/Betacraft-Launcher.svg?branch=master)
     A nostalgic launcher that brings back support for older Minecraft versions!
     <br />
     <a href="https://betacraft.pl/"><strong>Website</strong></a>
+    <br />
     <a href="https://github.com/KazuOfficial/Betacraft-Launcher"><strong>Explore the docs (coming soon) »</strong></a>
     <br />
     <br />
@@ -34,7 +35,6 @@ Status](https://travis-ci.com/KazuOfficial/Betacraft-Launcher.svg?branch=master)
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <a href="#history-of-the-project">History Of The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
@@ -143,5 +143,3 @@ Distributed under the GNU License. See `LICENSE` for more information.
 
 Email - kazuofficial.contact@gmail.com
 Discord - Kazu#8828
-
-# Have a wonderful day :)
