@@ -142,4 +142,9 @@ Distributed under the GNU License. See `LICENSE` for more information.
 ## Contact
 
 Email - kazuofficial.contact@gmail.com
+
 Discord - Kazu#8828
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+* [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
