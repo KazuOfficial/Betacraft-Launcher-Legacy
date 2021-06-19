@@ -103,7 +103,7 @@ To get a local copy up and running follow these simple example steps.
 2. Create `appsettings.json` in BetacraftLauncher folder
 3. Enter your Discord Client ID in `appsettings.json`. If you don't have the ID you can get one from [https://discord.com/developers/applications](https://discord.com/developers/applications)
    ```
-   "discordClientKey": "DISCORD_CLIENT_KEY"
+   "DiscordClientID": "DISCORD_CLIENT_KEY"
    ```
 
 <!-- USAGE EXAMPLES -->
