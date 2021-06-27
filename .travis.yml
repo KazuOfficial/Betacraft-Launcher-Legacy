@@ -1,8 +1,0 @@
-language: csharp
-os: windows
-mono: none
-dotnet: 5.0.0
-solution: BetacraftLauncher.sln
-script:
-  - dotnet restore
-  - dotnet test
