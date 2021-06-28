@@ -1,4 +1,5 @@
-﻿using BetacraftLauncher.Library.Models;
+﻿using BetacraftLauncher.Library.Interfaces;
+using BetacraftLauncher.Library.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;

@@ -1,4 +1,4 @@
-﻿namespace BetacraftLauncher.Library
+﻿namespace BetacraftLauncher.Library.Interfaces
 {
     public interface IFileInit
     {

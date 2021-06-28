@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BetacraftLauncher.Library;
+using BetacraftLauncher.Library.Interfaces;
 using BetacraftLauncher.Models;
 using Caliburn.Micro;
 using System;

@@ -1,4 +1,5 @@
-﻿using DiscordRPC;
+﻿using BetacraftLauncher.Library.Interfaces;
+using DiscordRPC;
 using DiscordRPC.Logging;
 using Microsoft.Extensions.Configuration;
 using System;

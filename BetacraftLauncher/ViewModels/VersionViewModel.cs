@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using BetacraftLauncher.EventModels;
-using BetacraftLauncher.Library;
+using BetacraftLauncher.Library.Interfaces;
 using BetacraftLauncher.Library.Models;
 using BetacraftLauncher.Models;
 using Caliburn.Micro;

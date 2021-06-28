@@ -1,5 +1,5 @@
 ﻿using BetacraftLauncher.EventModels;
-using BetacraftLauncher.Library;
+using BetacraftLauncher.Library.Interfaces;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;

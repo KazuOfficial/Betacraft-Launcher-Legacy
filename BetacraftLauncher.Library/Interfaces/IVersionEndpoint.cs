@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BetacraftLauncher.Library
+namespace BetacraftLauncher.Library.Interfaces
 {
     public interface IVersionEndpoint
     {

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BetacraftLauncher.Helpers;
 using BetacraftLauncher.Library;
+using BetacraftLauncher.Library.Interfaces;
 using BetacraftLauncher.Library.Models;
 using BetacraftLauncher.Models;
 using BetacraftLauncher.ViewModels;

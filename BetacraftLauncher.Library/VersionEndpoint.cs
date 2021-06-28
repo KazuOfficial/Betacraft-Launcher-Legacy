@@ -1,4 +1,5 @@
-﻿using BetacraftLauncher.Library.Models;
+﻿using BetacraftLauncher.Library.Interfaces;
+using BetacraftLauncher.Library.Models;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
