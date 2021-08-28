@@ -15,8 +15,6 @@
     <br />
     <a href="https://betacraft.pl/"><strong>Website</strong></a>
     <br />
-    <a href="https://github.com/KazuOfficial/Betacraft-Launcher"><strong>Explore the docs (coming soon) »</strong></a>
-    <br />
     <br />
     <a href="https://github.com/KazuOfficial/Betacraft-Launcher/releases">Download</a>
     ·
@@ -113,9 +111,6 @@ To get a local copy up and running follow these simple example steps.
 3. Click `Play` and enjoy!
  
 You can also change some settings in the `Instance Settings` tab.
-
-_For programmers, please refer to the [Documentation](https://example.com)_
-
 
 <!-- CONTRIBUTING -->
 ## Contributing

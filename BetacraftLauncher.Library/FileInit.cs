@@ -12,15 +12,23 @@ namespace BetacraftLauncher.Library
 {
     public class FileInit : IFileInit
     {
-        private string launcherPath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy\";
+        private static string launcherPath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy\";
+
+        private string[] launcherDirectories = new string[] 
+        {
+            launcherPath + @"\versions\jsons\",
+            launcherPath + @"\launcher\",
+            launcherPath + @"\bin\natives\"
+        };
 
         public void FileInitialization()
         {
             if (!Directory.Exists(launcherPath))
             {
-                Directory.CreateDirectory(launcherPath + @"\versions\jsons\");
-                Directory.CreateDirectory(launcherPath + @"\launcher\");
-                Directory.CreateDirectory(launcherPath + @"\bin\natives\");
+                for (int i = 0; i < launcherDirectories.Count(); i++)
+                {
+                    Directory.CreateDirectory(launcherDirectories[i]);
+                }
             }
 
             if (!File.Exists(launcherPath + @"\launcher\betacraft_wrapper.jar"))

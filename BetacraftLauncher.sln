@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetacraftLauncher", "Betacr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetacraftLauncher.Library", "BetacraftLauncher.Library\BetacraftLauncher.Library.csproj", "{7C4E42C8-12EF-4514-9584-7CAE8FFEA02D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetacraftLauncher.Tests", "BetacraftLauncher.Tests\BetacraftLauncher.Tests.csproj", "{25EC4C9E-876F-4454-8C46-DE6D27074C9A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetacraftLauncher.Tests", "BetacraftLauncher.Tests\BetacraftLauncher.Tests.csproj", "{C608B8F6-E652-477A-A66D-2496B712CE95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{7C4E42C8-12EF-4514-9584-7CAE8FFEA02D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C4E42C8-12EF-4514-9584-7CAE8FFEA02D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C4E42C8-12EF-4514-9584-7CAE8FFEA02D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{25EC4C9E-876F-4454-8C46-DE6D27074C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25EC4C9E-876F-4454-8C46-DE6D27074C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25EC4C9E-876F-4454-8C46-DE6D27074C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25EC4C9E-876F-4454-8C46-DE6D27074C9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C608B8F6-E652-477A-A66D-2496B712CE95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C608B8F6-E652-477A-A66D-2496B712CE95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C608B8F6-E652-477A-A66D-2496B712CE95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C608B8F6-E652-477A-A66D-2496B712CE95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
