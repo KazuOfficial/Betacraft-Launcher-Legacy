@@ -2,27 +2,22 @@
 using DiscordRPC;
 using DiscordRPC.Logging;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BetacraftLauncher.Library
 {
     public class DiscordRPCManager : IDiscordRPCManager
     {
-        private readonly IConfiguration config;
+        private readonly IConfiguration _config;
         private DiscordRpcClient client;
 
         public DiscordRPCManager(IConfiguration config)
         {
-            this.config = config;
+            _config = config;
         }
 
         public void Initialize()
         {
-            client = new DiscordRpcClient(config.GetValue<string>("DiscordClientID"));
+            client = new DiscordRpcClient(_config.GetValue<string>("DiscordClientID"));
 
             client.Logger = new ConsoleLogger() { Level = LogLevel.Warning };
 

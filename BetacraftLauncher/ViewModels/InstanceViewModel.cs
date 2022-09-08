@@ -2,27 +2,24 @@
 using BetacraftLauncher.Library.Interfaces;
 using Caliburn.Micro;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BetacraftLauncher.ViewModels
 {
     public class InstanceViewModel : Screen
     {
-        private string launcherPath { get; } = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy";
+        private string launcherPath = Environment.GetEnvironmentVariable("APPDATA") + @"\.betacraftlegacy";
 
-        private readonly IEventAggregator events;
-        private readonly IDiscordRPCManager discordRPC;
-        private readonly ILog logger;
+        private readonly IEventAggregator _events;
+        private readonly IDiscordRPCManager _discordRPC;
+        private readonly ILog _logger;
 
         public InstanceViewModel(IEventAggregator events, IDiscordRPCManager discordRPC, ILog logger)
         {
-            this.events = events;
-            this.discordRPC = discordRPC;
-            this.logger = logger;
+            _events = events;
+            _discordRPC = discordRPC;
+            _logger = logger;
 
             LoadSettings();
         }
@@ -103,13 +100,13 @@ namespace BetacraftLauncher.ViewModels
         {
             base.OnViewLoaded(view);
 
-            logger.Info("InstanceViewModel started.");
+            _logger.Info("InstanceViewModel started");
         }
 
         public void DirectoryButton()
         {
             Process.Start("explorer.exe", launcherPath);
-            logger.Info($"DirectoryButton clicked: {launcherPath}");
+            _logger.Info($"DirectoryButton clicked: {launcherPath}");
         }
 
         public async Task SubmitSettings()
@@ -118,15 +115,15 @@ namespace BetacraftLauncher.ViewModels
 
             if (RPC == false)
             {
-                discordRPC.Deinitialize();
+                _discordRPC.Deinitialize();
             }
             else
             {
-                discordRPC.Initialize();
-                logger.Info("Discord RPC Initialized.");
+                _discordRPC.Initialize();
+                _logger.Info("Discord RPC Initialized");
             }
 
-            await events.PublishOnUIThreadAsync(new InstanceSettingsEvent { 
+            await _events.PublishOnUIThreadAsync(new InstanceSettingsEvent { 
                 CurrentInstance = InstanceName,
                 LauncherOpen = LauncherOpen,
                 Arguments = Arguments,
@@ -134,7 +131,7 @@ namespace BetacraftLauncher.ViewModels
                 GameHeight = Height
             });
 
-            logger.Info("Event InstanceSettingsEvent sent.");
+            _logger.Info("Event InstanceSettingsEvent sent");
 
             await TryCloseAsync();
         }
@@ -149,7 +146,7 @@ namespace BetacraftLauncher.ViewModels
             Properties.Settings.Default.height = Height;
             Properties.Settings.Default.Save();
 
-            logger.Info("InstanceViewModel settings saved.");
+            _logger.Info("InstanceViewModel settings saved");
         }
 
         private void LoadSettings()
@@ -161,7 +158,7 @@ namespace BetacraftLauncher.ViewModels
             Width = Properties.Settings.Default.width;
             Height = Properties.Settings.Default.height;
 
-            logger.Info("Settings loaded to InstanceViewModel.");
+            _logger.Info("Settings loaded to InstanceViewModel");
         }
     }
 }

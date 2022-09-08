@@ -1,17 +1,11 @@
 ﻿using AutoMapper;
 using BetacraftLauncher.EventModels;
 using BetacraftLauncher.Library.Interfaces;
-using BetacraftLauncher.Library.Models;
 using BetacraftLauncher.Models;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Dynamic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -19,19 +13,19 @@ namespace BetacraftLauncher.ViewModels
 {
     public class VersionViewModel : Screen
     {
-        private readonly IVersionEndpoint versionEndpoint;
-        private readonly IWindowManager window;
-        private readonly IMapper mapper;
-        private readonly IEventAggregator events;
-        private readonly ILog logger;
+        private readonly IVersionEndpoint _versionEndpoint;
+        private readonly IWindowManager _window;
+        private readonly IMapper _mapper;
+        private readonly IEventAggregator _events;
+        private readonly ILog _logger;
 
         public VersionViewModel(IVersionEndpoint versionEndpoint, IWindowManager window, IMapper mapper, IEventAggregator events, ILog logger)
         {
-            this.versionEndpoint = versionEndpoint;
-            this.window = window;
-            this.mapper = mapper;
-            this.events = events;
-            this.logger = logger;
+            _versionEndpoint = versionEndpoint;
+            _window = window;
+            _mapper = mapper;
+            _events = events;
+            _logger = logger;
         }
 
         private BindingList<VersionDisplayModel> _versions;
@@ -62,7 +56,7 @@ namespace BetacraftLauncher.ViewModels
         {
             base.OnViewLoaded(view);
 
-            logger.Info("VersionViewModel started.");
+            _logger.Info("VersionViewModel started.");
 
             try
             {
@@ -71,7 +65,7 @@ namespace BetacraftLauncher.ViewModels
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                logger.Error(ex);
+                _logger.Error(ex);
 
                 await TryCloseAsync();
             }
@@ -79,11 +73,12 @@ namespace BetacraftLauncher.ViewModels
 
         private async Task LoadVersions()
         {
-            var versionList = await versionEndpoint.GetVersions();
-            var versions = mapper.Map<List<VersionDisplayModel>>(versionList);
+            var versionList = await _versionEndpoint.GetVersions();
+            var versions = _mapper.Map<List<VersionDisplayModel>>(versionList);
             Versions = new BindingList<VersionDisplayModel>(versions);
 
-            logger.Info($"VersionDisplayModel binded to Versions BindingList. Versions in list: {Versions.Count}");
+            _logger.Info($"VersionDisplayModel binded to Versions BindingList. " +
+                $"Versions count: {Versions.Count}");
         }
 
         public async Task SelectVersion()
@@ -92,9 +87,9 @@ namespace BetacraftLauncher.ViewModels
 
             if (SelectedVersion != null)
             {
-                await events.PublishOnUIThreadAsync(new SelectVersionEvent { CurrentVersionMessage = SelectedVersion.Version });
+                await _events.PublishOnUIThreadAsync(new SelectVersionEvent { CurrentVersionMessage = SelectedVersion.Version });
 
-                logger.Info($"Version selected: {SelectedVersion.Version}");
+                _logger.Info($"Version selected: {SelectedVersion.Version}");
             }
 
             await TryCloseAsync();
@@ -107,7 +102,7 @@ namespace BetacraftLauncher.ViewModels
                 Properties.Settings.Default.version = SelectedVersion.Version;
                 Properties.Settings.Default.Save();
 
-                logger.Info($"SelectedVersion saved to settings: {SelectedVersion.Version}");
+                _logger.Info($"SelectedVersion saved to settings: {SelectedVersion.Version}");
             }
         }
     }

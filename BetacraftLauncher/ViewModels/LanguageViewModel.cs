@@ -5,9 +5,6 @@ using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -15,15 +12,15 @@ namespace BetacraftLauncher.ViewModels
 {
     public class LanguageViewModel : Screen
     {
-        private readonly ILanguageEndpoint languageEndpoint;
-        private readonly IWindowManager window;
-        private readonly IMapper mapper;
+        private readonly ILanguageEndpoint _languageEndpoint;
+        private readonly IWindowManager _window;
+        private readonly IMapper _mapper;
 
         public LanguageViewModel(ILanguageEndpoint languageEndpoint, IWindowManager window, IMapper mapper)
         {
-            this.languageEndpoint = languageEndpoint;
-            this.window = window;
-            this.mapper = mapper;
+            _languageEndpoint = languageEndpoint;
+            _window = window;
+            _mapper = mapper;
         }
 
         private BindingList<LanguageDisplayModel> _languages;
@@ -68,8 +65,8 @@ namespace BetacraftLauncher.ViewModels
 
         private async Task LoadLanguages()
         {
-            var languageList = await languageEndpoint.GetLanguages();
-            var languages = mapper.Map<List<LanguageDisplayModel>>(languageList);
+            var languageList = await _languageEndpoint.GetLanguages();
+            var languages = _mapper.Map<List<LanguageDisplayModel>>(languageList);
             Languages = new BindingList<LanguageDisplayModel>(languages);
         }
 
@@ -77,7 +74,7 @@ namespace BetacraftLauncher.ViewModels
         {
             SaveLanguageSettings();
 
-            await languageEndpoint.DownloadLanguage(SelectedLanguage.Language);
+            await _languageEndpoint.DownloadLanguage(SelectedLanguage.Language);
 
             await TryCloseAsync();
         }
