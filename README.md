@@ -11,7 +11,7 @@
   <h3 align="center">Betacraft Launcher</h3>
 
   <p align="center">
-    A nostalgic launcher that brings back support for older Minecraft versions!
+    A nostalgic launcher that supports legacy Minecraft versions!
     <br />
     <a href="https://betacraft.uk/"><strong>Website</strong></a>
     <br />
@@ -30,18 +30,6 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -55,27 +43,11 @@
 Enjoy your favourite old Minecraft versions exactly as you remember them!
 
 * Choose a version of your desire from the version list
-* Pick any username you wish
-* Enjoy the legacy skin, texture, and sound support thanks to built in Betacraft Proxy
-* Customize your instance by changing instance size, instance name, Betacraft Proxy and Discord RPC settings
-* Show your Discord friends what you're doing thanks to Discord Rich Presence implemenation
+* Enjoy the legacy skins, textures, and sound support thanks to the built in Betacraft Proxy
+* Customize your instance by changing its size, name, Betacraft Proxy or Discord RPC settings
+* Show off to your Discord friends thanks to the Discord Rich Presence implemenation
 
 Check out the main, supported edition of Betacraft Launcher: [https://github.com/Moresteck/BetaCraft-Launcher-Java](https://github.com/Moresteck/BetaCraft-Launcher-Java)
-
-<!-- ABOUT THE PROJECT -->
-##### History Of The Project
-
-Back in 2018 Betacraft, a Minecraft server running on version b1.7.3 was about to be transformated into a modded Minecraft server. Me and Moresteck, the adminsitrators of Betacraft, knew that people won't be willing to install mods on their own, therefore we acknowledged the fact that there will be less people playing on our server. We wanted to prevent that, so the idea of Betacraft Launcher was born.
-
-The first public version of the launcher was able to download and run a premade modded Minecraft version prepared specifally for our server. The idea of a simple launcher made specifally for a small Minecraft server grew into a mission of providing the best nostalgic Minecraft experience out there.
-
-Now Betacraft consists of:
-* A Minecraft server running on version b1.7.3 (ip: betacraft.uk).
-* Betacraft Launcher, which with the help of Betacraft Proxy introduces various fixes and addons for older Minecraft versions.
-* Betacraft Proxy, which brings back support for skins, sounds, and textures on older Minecraft versions.
-* Betacraft Website, which allows you to change your skin and cape in Betacraft Proxy, and which is a home for all Betacraft products.
-
-Visit our website: [https://betacraft.uk/](https://betacraft.uk/)
 
 ### Built With
 
@@ -84,32 +56,6 @@ Visit our website: [https://betacraft.uk/](https://betacraft.uk/)
 * [Caliburn Micro](https://caliburnmicro.com/)
 * [Serilog](https://serilog.net/)
 * [Discord RPC C#](https://github.com/Lachee/discord-rpc-csharp)
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-To get a local copy up and running follow these simple example steps.
-
-### Installation
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/KazuOfficial/Betacraft-Launcher.git
-   ```
-2. Create `appsettings.json` in BetacraftLauncher folder
-3. Enter your Discord Client ID in `appsettings.json`. If you don't have the ID you can get one from [https://discord.com/developers/applications](https://discord.com/developers/applications)
-   ```
-   "DiscordClientID": "DISCORD_CLIENT_KEY"
-   ```
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-1. Click `Version List` and select a version of your desire.
-2. Type in your username in the TextField.
-3. Click `Play` and enjoy!
- 
-You can also change some settings in the `Instance Settings` tab.
 
 <!-- CONTRIBUTING -->
 ## Contributing
